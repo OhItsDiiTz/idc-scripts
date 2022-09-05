@@ -1,6 +1,6 @@
 #include <idc.idc>
 extern image_base;
-
+//idk if anyone is reading this, but this is a script I wrote a while ago (Aug 20 2020 to be exact). Basically what it does is labels most/all LUI functions the game uses.
 //big resolve function
 static ResolveLuaCall(luacall_hash) {
 	//ClientModel_methods
