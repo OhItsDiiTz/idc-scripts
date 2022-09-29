@@ -1,3 +1,5 @@
+#include <idc/idc.idc>
+
 static resolve(hash) {
 	if(hash == 0x274F8974028A5B02) return "LUI_CoD_LuaCall_GetBlueprintData";
 	if(hash == 0x458814B87A126EE) return "LUI_CoD_LuaCall_SetBlueprintData";
