@@ -1435,8 +1435,7 @@ static resolve(hash) {
 	if(hash == 0x4327C4D57F7A13E8) return "LUI_CoD_LuaCall_IsContentCreatorCodeExpired";
 	if(hash == 0xCA5D74F5095148D5) return "LUI_CoD_LuaCall_GetContentCreatorCode";
 	if(hash == 0xB1A0ABF2C57B4CA4) return "LUI_CoD_LuaCall_RedeemCode";
-
-    return sprintf("LUI_CoD_LuaCall_%X", hash);
+	return sprintf("LUI_CoD_LuaCall_%X", hash);
 }
 
 static main(void) {
