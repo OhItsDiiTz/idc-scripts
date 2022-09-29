@@ -1,16 +1,16 @@
 static resolve(hash) {
-    if(hash == 0x274F8974028A5B02) return "LUI_CoD_LuaCall_GetBlueprintData";
-    if(hash == 0x458814B87A126EE) return "LUI_CoD_LuaCall_SetBlueprintData";
-    if(hash == 0x0A72A7A297BA6F63F) return "LUI_CoD_LuaCall_UploadBlueprintData";
-    if(hash == 0x10CB63C42F8A578E) return "LUI_CoD_LuaCall_HasBlueprintData";
-    if(hash == 0x5577516C89DA45AE) return "LUI_LuaCall_Social_AddFriendCrossplay";
-    if(hash == 0xF3A3FA18FDC01515) return "LUI_LuaCall_Social_AddFriendCrossplayByXuid";
-    if(hash == 0x7F08EBA43AE12353) return "LUI_LuaCall_Social_GetPresenceFields";
-    if(hash == 0x2CA5E56F119FE828) return "LUI_LuaCall_Social_GetPresenceFieldsByPlatformId";
-    if(hash == 0xF395DE1E9756DA1F) return "LUI_LuaCall_Game_GetPlayerTeam";
-    if(hash == 0x56D5B6B00C35082B) return "LUI_LuaCall_Game_GetMigrationStatus";
-    if(hash == 0xE7C75E608EA39B5C) return "LUI_CoD_LuaCall_Exec";
-    if(hash == 0xEB81A5136C5503E4) return "LUI_CoD_LuaCall_ExecNow";
+	if(hash == 0x274F8974028A5B02) return "LUI_CoD_LuaCall_GetBlueprintData";
+	if(hash == 0x458814B87A126EE) return "LUI_CoD_LuaCall_SetBlueprintData";
+	if(hash == 0x0A72A7A297BA6F63F) return "LUI_CoD_LuaCall_UploadBlueprintData";
+	if(hash == 0x10CB63C42F8A578E) return "LUI_CoD_LuaCall_HasBlueprintData";
+	if(hash == 0x5577516C89DA45AE) return "LUI_LuaCall_Social_AddFriendCrossplay";
+	if(hash == 0xF3A3FA18FDC01515) return "LUI_LuaCall_Social_AddFriendCrossplayByXuid";
+	if(hash == 0x7F08EBA43AE12353) return "LUI_LuaCall_Social_GetPresenceFields";
+	if(hash == 0x2CA5E56F119FE828) return "LUI_LuaCall_Social_GetPresenceFieldsByPlatformId";
+	if(hash == 0xF395DE1E9756DA1F) return "LUI_LuaCall_Game_GetPlayerTeam";
+	if(hash == 0x56D5B6B00C35082B) return "LUI_LuaCall_Game_GetMigrationStatus";
+	if(hash == 0xE7C75E608EA39B5C) return "LUI_CoD_LuaCall_Exec";
+	if(hash == 0xEB81A5136C5503E4) return "LUI_CoD_LuaCall_ExecNow";
 	if(hash == 0xB23AE22AD938F1AF) return "LUI_CoD_LuaCallIsClientModelInitialized";
 	if(hash == 0x7A2BE2F2EB296D5B) return "LUI_CoD_LuaCallSetClientModelModifiable";
 	if(hash == 0xB73F2161FA9B00CB) return "LUI_CoD_LuaCall_GetClientModelIndex";
