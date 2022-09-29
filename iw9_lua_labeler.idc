@@ -1452,5 +1452,5 @@ static main(void) {
         //MakeName(func, resolve(hash)); //uncomment me to label in ida lol
         xref = get_next_cref_to(start, xref);
 	}
-
 }
+
