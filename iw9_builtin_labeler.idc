@@ -3,6 +3,11 @@
 
 static resolve(hash) {
     
+	if(hash == 0xE170DE7C1E9A3DDE) return "GScr_GetDvar";
+	if(hash == 0xFBDB5FD2AC2902F) return "GScr_GetDvarInt";
+	if(hash == 0xAB10A695B43FC2B4) return "GScr_GetDvarFloat";
+	if(hash == 0xF54D1AAD9E652735) return "GScr_GetDvarVector";
+	
     return sprintf("GScr_%X", hash);
 }
 
