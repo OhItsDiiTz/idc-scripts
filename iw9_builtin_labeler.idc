@@ -13,7 +13,6 @@ static main(void) {
     ea = FindBinary(ea, SEARCH_DOWN, "C5 F8 10");
     while(ea < end) {
         auto table = ea + Dword(ea + 4) + 8;
-        //Message("0x%X - 0x%X\n", Qword(table), Dword(table + 8));
         auto i = 0;
         for(i = 0;i < Dword(table + 8);i++) {
             Message("%s: 0x%X\n", resolve(Qword(Qword(table) + (0x18 * i))), Qword(Qword(table) + (0x18 * i) + 8) - get_imagebase());
