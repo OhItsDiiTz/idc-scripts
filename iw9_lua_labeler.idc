@@ -1449,7 +1449,7 @@ static main(void) {
 	    auto func = FindBinary(xref, SEARCH_UP, "4C 8D 05");
 	    func = func + Dword(func + 3) + 7;
         Message("%s: 0x%X\n", resolve(hash), func - get_imagebase());
-        //MakeName(func, resolve(hash)); //uncomment me to label in ida lol
+        MakeName(func, resolve(hash)); //uncomment me to label in ida lol
         xref = get_next_cref_to(start, xref);
 	}
 }
