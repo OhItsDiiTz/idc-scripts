@@ -27,6 +27,11 @@ static resolve(hash) {
 	if(hash == 0xD0943990D5EEF45C) return "GScr_BBPrint";
 	if(hash == 0x420B956C70B8A9B5) return "PlayerCmd_SetClientDvar";
 	if(hash == 0xF823637BE61D5E72) return "PlayerCmd_SetClientDvars";
+	if(hash == 0xDB073176839D77FB) return "GScr_ReportChallengeUserEvent";
+	if(hash == 0x617F7D9B0B9FF8E7) return "GScr_CameraLinkTo";
+	if(hash == 0xEE3AE75954C1CE25) return "GScr_Detonate";
+	if(hash == 0x1413B6BF238DF91B) return "BGScr_GenerateAxisAnglesFromForwardVector";
+	if(hash == 0x6410D7AAAD3C0D81) return "BGScr_GenerateAxisAnglesFromUpVector";
 	
     return sprintf("GScr_%X", hash);
 }
