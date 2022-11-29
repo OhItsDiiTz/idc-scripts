@@ -5,12 +5,15 @@
 		ida and start reversing the game. Please note that this won't work for every single game that
 		uses arxan because things can change with different versions and the sig can break.
 		Games Tested On: mw 2019, bo3, mw 2022 (mw2), gta v, fortnite (older builds that contained arxan)
+		
+		8B 45 ? 83 F8 FF 0F 85 ? ? ? ? E9 ? ? ? ?
+		8B 45 00 83 F8 FF 0F 85 ? ? ? ? E9 ? ? ? ?
 */
 
 #include <idc/idc.idc>
 
 static main() {
-	auto end = FindBinary(0, SEARCH_DOWN, "8B 45 00 83 F8 FF 0F 85 ? ? ? ? E9 ? ? ? ?");
+	auto end = FindBinary(0, SEARCH_DOWN, "8B 45 ? 83 F8 FF 0F 85 ? ? ? ? E9 ? ? ? ?");
 	AddBpt(end + 12);
 	SetBptCnd(end + 12, "PauseProcess();Warning(\"Ready to dump with scylla or any other dumping software you may use!\");");
 	LoadDebugger("win32", 0);
