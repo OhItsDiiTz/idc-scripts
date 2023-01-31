@@ -32,6 +32,11 @@ static resolve(hash) {
 	if(hash == 0xEE3AE75954C1CE25) return "GScr_Detonate";
 	if(hash == 0x1413B6BF238DF91B) return "BGScr_GenerateAxisAnglesFromForwardVector";
 	if(hash == 0x6410D7AAAD3C0D81) return "BGScr_GenerateAxisAnglesFromUpVector";
+	if(hash == 0x0BD8324262B651D7E) return "GScr_SetMiniMap";
+	if(hash == 0x7A90688F925364DE) return "GScr_EndLobby";
+	if(hash == 0x5FC5025071CAB9CF) return "ScrCmd_StopSpectatePlayer";
+	if(hash == 0xEB90439FF464A7D4) return "PlayerCmd_giveWeapon";
+	if(hash == 0xA567DB9E6311A191) return "G_VehicleScriptCmd_FireWeapon";
 	
     return sprintf("GScr_%X", hash);
 }
