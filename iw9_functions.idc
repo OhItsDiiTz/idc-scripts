@@ -142,6 +142,7 @@ static main(void) {
 	FindAddress("Live_DWLoginComplete", "48 89 5C 24 ? 57 48 83 EC 20 8B F9 E8 ? ? ? ? 8B D7 48 8B C8 E8 ? ? ? ? 48 8B C8 48 8B D8 E8 ? ? ? ?");
 	FindAddress("Live_CancelConnecting", "48 83 EC 28 B2 1E 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8D 0D ? ? ? ? 48 83 C4 28 E9 ? ? ? ?");
 	FindAddress("Live_DemonwareDisconnected", "E8 ? ? ? ? 33 D2 48 8B CB 48 83 C4 20 5B E9 ? ? ? ? 48 83 C4 20 5B C3");
+	FindAddress("Live_IsInLiveGame", "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B CE E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B CE 4C 89 BC 24 ? ? ? ? E8 ? ? ? ? BA ? ? ? ? 8B C8 44 8B F8 E8 ? ? ? ?");
 	
 	//GetInstance Functions
 	FindAddress("PublisherVariableManager::GetInstance", "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 74 10 E8 ? ? ? ? 84 C0 74 07");
@@ -150,9 +151,16 @@ static main(void) {
 	FindAddress("GWeaponMap::GetInstance", "E8 ? ? ? ? 66 39 74 24 ? 74 24 4C 8D 44 24 ? 48 8B D7");
 	
 	//MSG_ Functions
+	FindAddress("MSG_WriteBitsCompress", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC 30 4C 8B 7C 24 ? 33 DB 89 5C 24 68 49 8B E8 49 63 F9 4C 8B F2 41 89 1F 45 85 C9 7E 3D");
 	FindAddress("MSG_ReadByte", "E8 ? ? ? ? 8B 15 ? ? ? ? 48 8B CB 8B E8 E8 ? ? ? ? 48 8B CB 48 8B F0 E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 0D ? ? ? ? 89 AC 0A ? ? ? ? 89 B4 0A ? ? ? ?");
 	FindAddress("MSG_ReadBits", "E8 ? ? ? ? 48 8B CB 48 8B F0 E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 0D ? ? ? ? 89 AC 0A ? ? ? ? 89 B4 0A ? ? ? ? 89 84 0A ? ? ? ? E8 ? ? ? ?");
 	FindAddress("MSG_ReadLong", "E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 0D ? ? ? ? 89 AC 0A ? ? ? ? 89 B4 0A ? ? ? ? 89 84 0A ? ? ? ? E8 ? ? ? ? 2B 05 ? ? ? ? 3D ? ? ? ? 7E 3D E8 ? ? ? ?");
+	FindAddress("MSG_WriteBits", "48 89 5C 24 ? 57 8B 59 28 45 8B D8 8B 79 18 4C 8B D1 46 8D 0C 03 8D 04 FD ? ? ? ? 44 3B C8 7E 0A C6 01 01 48 8B 5C 24 ? 5F C3");
+	FindAddress("MSG_Init", "33 C0 C5 F9 EF C0 C5 FC 11 01 C5 F8 11 41 ? 48 89 41 30 48 89 51 08 44 89 41 18 88 41 01 48 89 41 10 89 41 20 C5 F8 77 C3");
+	FindAddress("MSG_WriteByte", "4C 8B C9 8B 49 28 45 8B 41 18 8D 41 20 41 C1 E0 03 41 3B C0 7E 05 41 C6 01 01 C3");
+	FindAddress("MSG_WriteLong", "4C 8B C9 8B 49 28 45 8B 41 18 8D 41 08 41 C1 E0 03 41 3B C0 7E 05 41 C6 01 01 C3");
+	FindAddress("MSG_WriteData", "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 48 8B F9 4D 63 F0 8B 49 28 48 8B DA 8B 47 18 42 8D 34 F5 ? ? ? ?");
+	FindAddress("MSG_WriteString", "48 83 EC 28 4C 8B D1 48 C7 C0 ? ? ? ? 66 90 48 FF C0 80 3C 02 00 75 F7 48 3D ? ? ? ?");
 	
 	//CL_ Functions
 	FindAddress("CL_UICharacter_Reset", "40 53 48 83 EC 20 48 63 C1 33 D2 48 69 D8 ? ? ? ? 48 8D 05 ? ? ? ? 41 B8 ? ? ? ? 48 03 D8 48 8D 4B 02 E8 ? ? ? ? B8 ? ? ? ? 66 89 03 48 83 C4 20 5B C3");
@@ -178,6 +186,8 @@ static main(void) {
 	FindAddress("CL_GetLocalClientActiveCount", "E8 ? ? ? ? 3B 05 ? ? ? ? 7E 17 41 B8 ? ? ? ? 48 8D 15 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ?");
 	FindAddress("CL_AllLocalClientsDisconnected", "48 83 EC 28 E8 ? ? ? ? 84 C0 75 07 B0 01 48 83 C4 28 C3 83 3D ? ? ? ? ? 0F 94 C0 48 83 C4 28 C3");
 	FindAddress("CL_Main_InvalidateSkeletonCache", "40 53 48 83 EC 20 BB ? ? ? ? 33 C0 F0 0F B1 1D ? ? ? ? 74 1A 3B C3 74 16 B9 ? ? ? ? E8 ? ? ? ? 33 C0 F0 0F B1 1D ? ? ? ? 75 E6 48 83 C4 20 5B C3");
+	FindAddress("CL_InputMP_IsReadyForUserCommand", "48 63 C1 48 69 C8 ? ? ? ? 48 8D 05 ? ? ? ? 83 3C 01 08 0F 9D C0 C3");
+	FindAddress("CL_MigrationFrame", "41 56 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 4C 63 F1 E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B CE E8 ? ? ? ? 84 C0 0F 84 ? ? ? ?");
 	
 	//CG_ Functions
 	FindAddress("CG_ViewmodelShieldHitsProcess", "E8 ? ? ? ? 33 C9 E8 ? ? ? ? 33 C9 E8 ? ? ? ? 33 C9 E8 ? ? ? ? 48 8B 03 48 8B CB 48 83 C4 20 5B 48 FF 60 10");
@@ -218,6 +228,8 @@ static main(void) {
 	FindAddress("BB_Disable_f", "48 8D 15 ? ? ? ? E8 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? 48 8B C8 4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 33 D2 48 8D 1D ? ? ? ?");
 	FindAddress("BB_ClearStringCache", "E8 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 33 C9 48 83 C4 28 E9 ? ? ? ?");
 	
+	//Party_ Functions
+	FindAddress("Party_PartiesAcrossGamemodesFeatureEnabled", "E8 ? ? ? ? 84 C0 75 16 8B CE E8 ? ? ? ? E8 ? ? ? ? 48 8B C8 8B D6 E8 ? ? ? ?");
 	
 	//Misc/Unsorted Functions
 	FindAddress("ScrCmd_Unlink_Internal", "40 53 48 83 EC 70 48 8B D9 0F B6 CA E8 ? ? ? ? 48 8B 8B ? ? ? ? 48 85 C9 74 30 8B 81 ? ? ? ? C1 E8 0B A8 01");
@@ -244,12 +256,22 @@ static main(void) {
 	FindAddress("CgMLGSpectator::GetCameraManager", "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 80 BB ? ? ? ? ?");
 	FindAddress("CgMLGCameraManager::ShouldRenderThirdPerson", "E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 80 BB ? ? ? ? ? 0F 85 ? ? ? ?");
 	FindAddress("ComCharacterLimits::UpdateGameLimits", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 89 0D ? ? ? ? 41 8B F9 41 8B F0 8B EA 8B D9 83 F9 01");
-	FindAddress("SvGameModeAppMP::ServerStart_PreSpawn", "48 83 EC 38 8B 05 ? ? ? ? 48 89 5C 24 ? 48 8D 1C C5 ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 89 6C 24 ? 48 89 7C 24 ?");
 	FindAddress("BG_GetClipSize", "48 8B C4 48 89 58 08 48 89 70 18 57 48 81 EC ? ? ? ? C5 F8 29 70 ? C5 F8 29 78 ? 48 8B 05 ? ? ? ?");
+	FindAddress("Com_GameMode_SupportsFeature", "0F B6 05 ? ? ? ? 4C 8D 05 ? ? ? ? 48 69 D0 ? ? ? ? 8B C9 42 0F B6 84 02 ? ? ? ? 41 8B 84 80 ? ? ? ? 41 85 84 88 ? ? ? ? 0F 95 C0 C3");
+	FindAddress("ClNetperfTelemetry::TrackUsercmd", "48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 30 41 0F B6 F1 41 8B E8 44 8B F2 48 8B F9 E8 ? ? ? ? 84 C0");
+	FindAddress("NetConnection::SendP2P", "40 53 56 57 48 83 EC 50 48 8B 05 ? ? ? ? 48 33 C4 48 89 44 24 ? 48 8B D9 41 8B F1 48 8B 09 49 8B F8 E8 ? ? ? ? 48 8D 54 24 ? 48 8B C8 E8 ? ? ? ?");
+	
+	//Host only functions
+	FindAddress("G_Items_FillClip", "40 55 57 41 54 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 40 4C 8B F9");
+	FindAddress("G_Items_AddAmmo", "40 55 53 57 41 54 41 55 41 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 60");
+	FindAddress("G_Items_InitializeAmmo", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 30 48 8B F1 45 0F B6 F1 48 8B CA 45 0F B6 E0 48 8B FA E8 ? ? ? ?");
+	FindAddress("G_Weapon_GivePlayerWeapon", "E8 ? ? ? ? 84 C0 74 19 44 0F B6 44 24 ? 48 8D 54 24 ? 45 0F B6 CE 48 8B CF E8 ? ? ? ? EB 10");
+	FindAddress("SvGameModeAppMP::ServerStart_PreSpawn", "48 83 EC 38 8B 05 ? ? ? ? 48 89 5C 24 ? 48 8D 1C C5 ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 89 6C 24 ? 48 89 7C 24 ?"); //unsure about this one, has Sv in the beginning which could be server?
 	
 	//Variables
 	FindAddress("level.clients", "4C 8B 05 ? ? ? ? 48 63 C2 FF C2 48 69 D8 ? ? ? ? 89 15 ? ? ? ? 48 03 D9 E8 ? ? ? ?");
 	FindAddress("g_entities", "48 03 15 ? ? ? ? 41 FF 52 20 48 8B C3 48 83 C4 20 5B C3");
 	FindAddress("bg_weaponDefs", "48 8D 2D ? ? ? ? 48 8B 6C C5 ? E8 ? ? ? ? 66 39 74 24 ?");
+	FindAddress("bg_weaponCompleteDefs", "48 8D 0D ? ? ? ? 4C 8D 4C 24 ? 44 8B C5 4C 8B 3C C1 48 8B CF E8 ? ? ? ?");
 	
 }
