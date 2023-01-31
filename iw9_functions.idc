@@ -295,6 +295,6 @@ static main(void) {
 	FindAddress("CgStatic::ms_cgameStaticsArray", "48 8D 15 ? ? ? ? 48 8B 0C CA 48 8B 11 4C 8B 82 ? ? ? ? 8B D3 41 FF D0");
 	FindAddress("cg_t::ms_cgArray", "4C 8D 05 ? ? ? ? 4D 8B 04 D0 90");
 	FindAddress("CgCompassSystem::ms_compassSystemArray", "48 8D 1D ? ? ? ? 48 8B 1C CB 48 85 DB 74 4F");
-	FindAddress("s_aab_set_pointer_lastpos", "8B 05 ? ? ? ? 4C 33 C0 41 FF D0 F6 03 01");
+	//FindAddress("s_aab_set_pointer_lastpos", "8B 05 ? ? ? ? 4C 33 C0 41 FF D0 F6 03 01"); //bad spot need to fix
 	
 }
