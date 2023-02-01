@@ -37,6 +37,8 @@ static resolve(hash) {
 	if(hash == 0x5FC5025071CAB9CF) return "ScrCmd_StopSpectatePlayer";
 	if(hash == 0xEB90439FF464A7D4) return "PlayerCmd_giveWeapon";
 	if(hash == 0xA567DB9E6311A191) return "G_VehicleScriptCmd_FireWeapon";
+	if(hash == 0xD7BB4E6AD754C615) return "Scr_FindPath";
+	if(hash == 0xA9429CC8A1D362A9) return "GScr_GetPlayerRateOfGameRevenue";
 	
     return sprintf("GScr_%X", hash);
 }

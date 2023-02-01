@@ -244,6 +244,7 @@ static main(void) {
 	FindAddress("Party_PartiesAcrossGamemodesFeatureEnabled", "E8 ? ? ? ? 84 C0 75 16 8B CE E8 ? ? ? ? E8 ? ? ? ? 48 8B C8 8B D6 E8 ? ? ? ?");
 	
 	//Misc/Unsorted Functions
+	FindAddress("I_CleanStr", "E8 ? ? ? ? BE ? ? ? ? 4D 8B C7 48 8D 8C 24 ? ? ? ?");
 	FindAddress("ScrCmd_Unlink_Internal", "40 53 48 83 EC 70 48 8B D9 0F B6 CA E8 ? ? ? ? 48 8B 8B ? ? ? ? 48 85 C9 74 30 8B 81 ? ? ? ? C1 E8 0B A8 01");
 	FindAddress("R_RegisterFont", "E8 ? ? ? ? 48 BB ? ? ? ? ? ? ? ? 48 89 05 ? ? ? ? 48 8B CB BA ? ? ? ? E8 ? ? ? ? BA ? ? ? ? 48 89 05 ? ? ? ? 48 8B CB E8 ? ? ? ? 48 89 05 ? ? ? ? 8B 05 ? ? ? ? 83 C0 D0 89 05 ? ? ? ?");
 	FindAddress("Material_RegisterHandle", "E8 ? ? ? ? 48 B9 ? ? ? ? ? ? ? ? 48 89 05 ? ? ? ? BA ? ? ? ? E8 ? ? ? ? 48 BB ? ? ? ? ? ? ? ? 48 89 05 ? ? ? ? 48 8B CB BA ? ? ? ? E8 ? ? ? ?");
@@ -278,6 +279,7 @@ static main(void) {
 	FindAddress("Online_Loot::GetItemQuantity", "E8 ? ? ? ? 89 45 7F 85 C0 74 6D 49 8B 0C 24 E8 ? ? ? ? 89 45 77 85 C0 75 1A 44 8B C6 41 8B D7 49 8B CE");
 	FindAddress("CgCompassSystemMP::ActorUpdatePos", "E8 ? ? ? ? 48 8B CB E8 ? ? ? ? 8B 43 08 89 43 60");
 	FindAddress("CompassActor_SetLastEnemyPosFromLastPos", "E8 ? ? ? ? 8B 43 08 89 43 60 4C 8B B4 24 ? ? ? ?");
+	FindAddress("atof", "E8 ? ? ? ? 48 8B 83 ? ? ? ? C5 FB 5A C8 C5 FA 11 88 ? ? ? ?");
 	
 	//Host only functions
 	FindAddress("G_Items_FillClip", "40 55 57 41 54 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 40 4C 8B F9");
@@ -285,6 +287,15 @@ static main(void) {
 	FindAddress("G_Items_InitializeAmmo", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 30 48 8B F1 45 0F B6 F1 48 8B CA 45 0F B6 E0 48 8B FA E8 ? ? ? ?");
 	FindAddress("G_Weapon_GivePlayerWeapon", "E8 ? ? ? ? 84 C0 74 19 44 0F B6 44 24 ? 48 8D 54 24 ? 45 0F B6 CE 48 8B CF E8 ? ? ? ? EB 10");
 	FindAddress("SvGameModeAppMP::ServerStart_PreSpawn", "48 83 EC 38 8B 05 ? ? ? ? 48 89 5C 24 ? 48 8D 1C C5 ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 89 6C 24 ? 48 89 7C 24 ?"); //unsure about this one, has Sv in the beginning which could be server?
+	FindAddress("SV_Game_BroadcastServerCommand", "E8 ? ? ? ? 88 9C 2E ? ? ? ? C6 84 2E ? ? ? ? ? 48 8B D3 48 8B CF");
+	FindAddress("G_ClientMP_OnSameTeam", "48 8B 81 ? ? ? ? 48 85 C0 74 22 48 8B 8A ? ? ? ? 48 85 C9 74 16 0F B6 80 ? ? ? ? 84 C0 74 0B 3A 81 ? ? ? ? 75 03 B0 01 C3");
+	FindAddress("G_ClientMP_IsPlaying", "48 8B 81 ? ? ? ? F7 80 ? ? ? ? ? ? ? ? 0F 94 C0 C3");
+	FindAddress("G_CmdsMP_SayTo", "E8 ? ? ? ? FF C3 3B 1D ? ? ? ? 7C BB");
+	FindAddress("G_CmdsMP_ClientCommand", "E8 ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 8B 0C 18 80 3C 29 00 75 05 E8 ? ? ? ? 65 48 8B 0C 25 ? ? ? ?");
+	FindAddress("G_CmdsMP_SpectateCycle_f", "40 53 48 83 EC 20 8B 81 ? ? ? ? 44 8B CA 83 C0 FE 48 8B D9 A9 ? ? ? ? 0F 85 ? ? ? ? 83 B9 ? ? ? ? ? 0F 8D ? ? ? ? 83 B9 ? ? ? ? ?");
+	FindAddress("Cmd_SetExtraGameRevenueRate", "E8 ? ? ? ? E9 ? ? ? ? 4C 8D 84 24 ? ? ? ? 48 8D 15 ? ? ? ?");
+	FindAddress("SV_Cmd_ArgInt", "E8 ? ? ? ? B9 ? ? ? ? 8B D8 E8 ? ? ? ? 44 8B CF");
+	FindAddress("G_CalloutMarkerPings_ProcessPredictedCommand", "40 55 56 57 41 54 41 55 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 10 8B 05 ? ? ? ?");
 	
 	//Variables
 	FindAddress("level.clients", "4C 8B 05 ? ? ? ? 48 63 C2 FF C2 48 69 D8 ? ? ? ? 89 15 ? ? ? ? 48 03 D9 E8 ? ? ? ?");
@@ -295,6 +306,7 @@ static main(void) {
 	FindAddress("CgStatic::ms_cgameStaticsArray", "48 8D 15 ? ? ? ? 48 8B 0C CA 48 8B 11 4C 8B 82 ? ? ? ? 8B D3 41 FF D0");
 	FindAddress("cg_t::ms_cgArray", "4C 8D 05 ? ? ? ? 4D 8B 04 D0 90");
 	FindAddress("CgCompassSystem::ms_compassSystemArray", "48 8D 1D ? ? ? ? 48 8B 1C CB 48 85 DB 74 4F");
+	FindAddress("SvClient::ms_clients", "48 8D 35 ? ? ? ? 48 89 7C 24 ? 48 8B 04 DE 48 8D 3C DE 80 78 08 06");
 	//FindAddress("s_aab_set_pointer_lastpos", "8B 05 ? ? ? ? 4C 33 C0 41 FF D0 F6 03 01"); //bad spot need to fix
 	
 }
