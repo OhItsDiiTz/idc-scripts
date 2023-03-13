@@ -1328,6 +1328,7 @@ static ResolveHash(hash) {
 	if(hash == 0x7D879F5D2C769843) return "__Lua_Engine_Function_HideScoreboard";
 	if(hash == 0x0E1F6A1BB8FCC288) return "__Lua_Engine_Function_OverrideVisibilityBit";
 	if(hash == 0x4D97858119DEE164) return "__Lua_Engine_Function_GetHudIconForWeapon";
+	if(hash == 0x139D15A32073B948) return "__Lua_Engine_Function_SetClanName";
 	return sprintf("__Lua_Engine_Function_%X", hash);
 }
 
