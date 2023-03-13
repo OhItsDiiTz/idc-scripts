@@ -121,4 +121,7 @@ static main(void) {
 	FindAddress("cl_showents", "40 53 48 81 EC ? ? ? ? 48 8B 0D ? ? ? ? 48 8D 94 24 ? ? ? ? 33 DB E8 ? ? ? ? 8B 08");
 	FindAddress("FireHudErrorMessageEvent", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 8B F1 48 8B FA 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9");
 	FindAddress("GetClientMode", "83 F9 FF 75 11 33 C9 48 63 C1 48 8D 0D ? ? ? ? 48 8B 04 C1 C3");
+	FindAddress("C_BaseEntity::GetAbsOrigin", "E8 ? ? ? ? F3 0F 10 13 F3 0F 10 5B ? F2 0F 10 08 8B 40 08 F3 0F 5C D1 0F 28 C1 89 44 24 28");
+	FindAddress("NDebugOverlay::Sphere", "48 8B C4 48 89 58 18 55 56 57 48 8D 68 D8 48 81 EC ? ? ? ? 48 8B D9 44 0F 29 48 ? 48 8B 0D ? ? ? ? 41 8B F9 41 8B F0");
+
 }
