@@ -55,6 +55,11 @@ static main(void) {
 	FindAddress("g_pGameEventSystem", "48 8B 1D ? ? ? ? 48 85 D2 75 48 48 8B 15 ? ? ? ? 48 8B 0D ? ? ? ? 48 85 D2 75 2E 48 8B 01"); //global variable
 	FindAddress("gpGlobals", "48 8B 1D ? ? ? ? 4C 8D 25 ? ? ? ? 48 8B 48 10 48 8B 41 20 48 85 C0 4C 0F 45 E0 44 38 73 3D 75 16 44 38 73 3C 75 10 48 8B 43 20 48 85 C0"); //global variable
 	FindAddress("dummyvars", "48 8D 0D ? ? ? ? F3 0F 11 05 ? ? ? ? 48 89 0D ? ? ? ? 48 89 41 20 C3"); //global variable
+	FindAddress("g_pVGuiLocalize", "48 8B 0D ? ? ? ? 41 B9 ? ? ? ? 4C 8B C0 48 89 74 24 ? 49 8B D6 FF 93 ? ? ? ? 33 D2 48 8D 8C 24 ? ? ? ?"); //global variable
+	FindAddress("modelinfo", "48 8B 0D ? ? ? ? 48 8D 94 24 ? ? ? ? 48 89 BC 24 ? ? ? ? 48 8B 39 48 8B CD E8 ? ? ? ? 48 8B 0D ? ? ? ?"); //global variable
+	FindAddress("g_pGameEntitySystem", "48 8B 0D ? ? ? ? 8D 53 01 E8 ? ? ? ? 48 85 C0 74 2E 48 8B 10 48 8B C8 FF 92 ? ? ? ? 84 C0 74 1E 48 8B 05 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 39 58 10 0F 8E ? ? ? ? 8D 53 01 EB 76"); //global variable
+	FindAddress("g_pClientMode", "48 8D 0D ? ? ? ? 48 8B 0C C1 EB 02 33 C9 4C 8D 0D ? ? ? ? C7 44 24 ? ? ? ? ? 4C 8D 05 ? ? ? ?"); //global variable
+	FindAddress("enginevgui", "48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 84 C0 75 27 48 8B 03 48 8B CB FF 90 ? ? ? ?"); //global variable
 	
 	FindAddress("AngleVectors", "E8 ? ? ? ? 4C 8D 7F 08 4C 8D 4D 98 4C 89 7C 24 ? 4C 8D 45 88 48 8D 54 24 ? 48 8D 4D 10 E8 ? ? ? ? 49 8B 06 49 8B CE FF 90 ? ? ? ? 48 8B C8 E8 ? ? ? ?");
 	FindAddress("CDOTALobby::DumpToTextBuffer", "48 89 6C 24 ? 56 48 83 EC 60 48 8B 49 18 33 ED 48 8B F2 48 89 6C 24 ? 48 83 C1 08 48 89 6C 24 ?");
@@ -101,7 +106,19 @@ static main(void) {
 	FindAddress("C_DOTAPlayer::GetNumSelectedUnits", "40 53 48 83 EC 20 44 8B 81 ? ? ? ? 48 8D 54 24 ? 48 8B D9 48 8B 0D ? ? ? ? E8 ? ? ? ? 44 8B 00");
 	FindAddress("C_DOTAPlayer::GetSelectedUnit", "48 89 5C 24 ? 57 48 83 EC 20 44 8B 81 ? ? ? ? 48 8B F9 48 8B 0D ? ? ? ? 48 63 DA 48 8D 54 24 ? E8 ? ? ? ? 44 8B 00");
 	FindAddress("C_DOTABaseAbility::GetCaster", "E8 ? ? ? ? 48 8B CF 0F B6 98 ? ? ? ? E8 ? ? ? ? 41 B9 ? ? ? ? 48 89 44 24 ? 8B D6 89 5C 24 20 48 8B CD 45 8D 41 03 E8 ? ? ? ?");
-	FindAddress("", "");
-	FindAddress("", "");
-	FindAddress("", "");
+	FindAddress("CDOTA_SF_Hud_Chat::PrintChatMessage", "40 55 53 57 41 54 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 45 8B E1 41 8B F8 8B DA E8 ? ? ? ? 4C 8B F8");
+	FindAddress("GetVectorInScreenSpace", "48 89 5C 24 ? 56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9 74 3F F2 41 0F 10 11 41 8B 41 08 0F 28 C2");
+	FindAddress("ScreenTransform", "48 89 5C 24 ? 56 48 83 EC 20 48 8B F1 48 8B DA 48 8B 0D ? ? ? ? 48 85 C9 0F 84 ? ? ? ?");
+	FindAddress("CBaseLesson::ShouldShowSpew", "40 57 48 83 EC 20 48 8B F9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 85 C0 75 0B 48 8B 05 ? ? ? ? 48 8B 40 08 48 8B 10 48 85 D2 74 74 80 3A 00 74 6F BA ? ? ? ? 48 89 5C 24 ? 48 8D 0D ? ? ? ?");
+	FindAddress("CGameInstructorSymbol::String", "E8 ? ? ? ? 4D 8B C5 4C 2B C0 66 0F 1F 84 00 ? ? ? ? 0F B6 10 42 0F B6 0C 00");
+	FindAddress("CScriptedIconLesson::Mod_ProcessElementAction", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 48 8B 84 24 ? ? ? ? 49 8B F9 0F 29 74 24 ? 41 0F B6 F0 F3 0F 10 74 24 ? 48 8B D9 C6 00 01 83 FA 2D 74 0A");
+	FindAddress("C_BaseEntity::EmitSound", "4C 8B DC 49 89 5B 10 49 89 6B 18 57 48 81 EC ? ? ? ? 41 8B D8 48 8B EA 48 8B F9 4D 85 C9 0F 84 ? ? ? ? 41 80 39 00");
+	FindAddress("C_BaseEntity::AddFlag", "E8 ? ? ? ? 48 8B 4F 30 48 8B 01 FF 90 ? ? ? ? 48 8B 16");
+	FindAddress("C_BaseEntity::SetParent", "48 85 D2 74 1F 48 8B 41 10 44 8B 50 30 41 C1 EA 09 41 F6 C2 01 75 16 48 8B 52 30 48 8B 49 30 E9 ? ? ? ?");
+	FindAddress("C_BaseAnimating::CreateRagdollCopy", "48 8B C4 55 53 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 48 89 70 20 48 8B F1 48 89 78 E8");
+	FindAddress("CGameEntitySystem::GetBaseEntity", "E8 ? ? ? ? 48 85 C0 74 2E 48 8B 10 48 8B C8 FF 92 ? ? ? ? 84 C0 74 1E 48 8B 05 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 39 58 10 0F 8E ? ? ? ? 8D 53 01 EB 76");
+	FindAddress("CGameEntitySystem::GetHighestEntityIndex", "E8 ? ? ? ? 8B 08 FF C1 3B D9 0F 8C ? ? ? ? 48 8B BC 24 ? ? ? ?");
+	FindAddress("cl_showents", "40 53 48 81 EC ? ? ? ? 48 8B 0D ? ? ? ? 48 8D 94 24 ? ? ? ? 33 DB E8 ? ? ? ? 8B 08");
+	FindAddress("FireHudErrorMessageEvent", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 8B F1 48 8B FA 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9");
+	FindAddress("GetClientMode", "83 F9 FF 75 11 33 C9 48 63 C1 48 8D 0D ? ? ? ? 48 8B 04 C1 C3");
 }
