@@ -42,7 +42,7 @@ static main(void) {
 	FindAddress("g_pDOTAPlayerResource", "48 8B 0D ? ? ? ? 8B 14 07 89 54 24 58 E8 ? ? ? ? 4C 8D 44 24 ? 89 44 24 50 48 8D 54 24 ?"); //global variable
 	FindAddress("gameeventmanager", "48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 48 8B 01 FF 50 30 48 85 C0 74 11 48 8B 0D ? ? ? ? 48 8B D0 4C 8B 01 41 FF 50 40 44 8B 83 ? ? ? ? 41 83 F8 FD"); //global variable
 	FindAddress("engine", "48 8B 0D ? ? ? ? 48 8D 05 ? ? ? ? 48 89 44 24 ? 48 8D 94 24 ? ? ? ? 44 8B C3 48 8B 01 FF 90 ? ? ? ? 4C 8B 35 ? ? ? ?"); //global variable
-	FindAddress("CEntityHandle::gm_pEntityList", "4C 8B 1D ? ? ? ? 4C 8D 05 ? ? ? ? 33 C0 49 8B 08 48 85 C9 74 3E 8B 91 ? ? ? ? 83 FA FD 77 33 8B CA"); //global variable
+	FindAddress("g_pEntitySystem" /* CEntityHandle::gm_pEntityList */, "4C 8B 1D ? ? ? ? 4C 8D 05 ? ? ? ? 33 C0 49 8B 08 48 85 C9 74 3E 8B 91 ? ? ? ? 83 FA FD 77 33 8B CA"); //global variable
 	FindAddress("g_pGameRules", "48 8B 0D ? ? ? ? 0F 29 74 24 ? 0F 57 F6 48 85 C9 74 3D 45 33 C0"); //global variable
 	FindAddress("input", "48 8B 0D ? ? ? ? 80 B9 ? ? ? ? ? F2 0F 10 81 ? ? ? ? F2 0F 11 44 24 ? 75 2D F3 0F 10 44 24 ?"); //global variable
 	FindAddress("g_ViewRender", "48 8D 0D ? ? ? ? E8 ? ? ? ? 83 7C 24 ? ? 48 C7 C7 ? ? ? ? 0F 84 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 4C 8D 45 D0 48 89 45 D0"); //global variable
@@ -51,6 +51,11 @@ static main(void) {
 	FindAddress("g_ClientSteamContext", "48 8D 1D ? ? ? ? 48 8D 05 ? ? ? ? 48 89 1D ? ? ? ? 8D 57 66 48 89 05 ? ? ? ? 48 8D 0D ? ? ? ? FF 15 ? ? ? ? 48 8D 05 ? ? ? ? 40 88 3D ? ? ? ? 48 89 05 ? ? ? ?"); //global variable
 	FindAddress("steamapicontext", "48 8B 0D ? ? ? ? 48 8B D0 48 8B 49 10 4C 8B 01 41 FF 50 28 83 F8 03 0F 85 ? ? ? ?"); //global variable
 	FindAddress("g_pNetworkMessages", "48 8B 05 ? ? ? ? 48 8B 00 44 8B 05 ? ? ? ? 48 8B 54 24 ? 48 8B 0D ? ? ? ? FF 90 ? ? ? ? 48 8B 44 24 ? 48 83 C4 38 C3"); //global variable
+	FindAddress("g_pFlattenedSerializers", "48 8B 0D ? ? ? ? 48 89 44 24 ? 48 8B 01 FF 90 ? ? ? ? 84 C0 0F 94 C0 88 83 ? ? ? ? 48 8B CB"); //global variable
+	FindAddress("g_pGameEventSystem", "48 8B 1D ? ? ? ? 48 85 D2 75 48 48 8B 15 ? ? ? ? 48 8B 0D ? ? ? ? 48 85 D2 75 2E 48 8B 01"); //global variable
+	FindAddress("gpGlobals", "48 8B 1D ? ? ? ? 4C 8D 25 ? ? ? ? 48 8B 48 10 48 8B 41 20 48 85 C0 4C 0F 45 E0 44 38 73 3D 75 16 44 38 73 3C 75 10 48 8B 43 20 48 85 C0"); //global variable
+	FindAddress("dummyvars", "48 8D 0D ? ? ? ? F3 0F 11 05 ? ? ? ? 48 89 0D ? ? ? ? 48 89 41 20 C3"); //global variable
+	
 	FindAddress("AngleVectors", "E8 ? ? ? ? 4C 8D 7F 08 4C 8D 4D 98 4C 89 7C 24 ? 4C 8D 45 88 48 8D 54 24 ? 48 8D 4D 10 E8 ? ? ? ? 49 8B 06 49 8B CE FF 90 ? ? ? ? 48 8B C8 E8 ? ? ? ?");
 	FindAddress("CDOTALobby::DumpToTextBuffer", "48 89 6C 24 ? 56 48 83 EC 60 48 8B 49 18 33 ED 48 8B F2 48 89 6C 24 ? 48 83 C1 08 48 89 6C 24 ?");
 	FindAddress("CDOTA_DB_Page_Profile::OnRecentGamesReceived", "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 4C 8B F1 48 8D 15 ? ? ? ?");
@@ -88,4 +93,15 @@ static main(void) {
 	FindAddress("C_DOTA_PlayerResource::OnPlayerSteamIDsChanged", "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 48 8B 01 FF 50 30 48 85 C0 74 11");
 	FindAddress("CDOTARichPresence::UpdateLocalRichPresence", "40 55 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 80 79 55 00 48 8B F9 0F 29 B4 24 ? ? ? ? 0F 28 F1 74 0A F2 0F 10 0D ? ? ? ? EB 08");
 	FindAddress("C_DOTA_PlayerResource::UpdatePlayerName", "48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC ? ? ? ? 48 63 DA 48 8B F1 BA ? ? ? ? 48 8D 0D ? ? ? ? 49 8B F8 E8 ? ? ? ? 48 85 C0 75 0B 48 8B 05 ? ? ? ? 48 8B 40 08");
+	FindAddress("C_BaseFlex::Connect", "40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B CB E8 ? ? ? ? 84 C0 74 04 B0 01 EB 41 48 8B 43 10 4C 8D 05 ? ? ? ? 48 8D 54 24 ? 48 8B 48 08 48 8B 81 ? ? ? ? 48 89 44 24 ? 48 8B 81 ? ? ? ? 48 8B 0D ? ? ? ? 48 89 44 24 ?");
+	FindAddress("CEntityInstance::IsAuthoritative", "E8 ? ? ? ? 84 C0 74 04 B0 01 EB 41 48 8B 43 10 4C 8D 05 ? ? ? ? 48 8D 54 24 ? 48 8B 48 08 48 8B 81 ? ? ? ? 48 89 44 24 ? 48 8B 81 ? ? ? ?");
+	FindAddress("GDOTADefaultCamera", "48 83 EC 38 E8 ? ? ? ? 48 85 C0 74 4D 48 8B 10 48 8B C8 48 89 5C 24 ? FF 92 ? ? ? ? 48 8B D8 48 85 C0 74 25");
+	FindAddress("CDOTA_Camera::MoveToEntity", "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 48 8B DA 33 C9 E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ?");
+	FindAddress("C_DOTAPlayer::GetLocalDOTAPlayer", "33 C0 83 F9 FF 0F 44 C8 48 63 C1 48 8D 0D ? ? ? ? 48 8B 04 C1 C3");
+	FindAddress("C_DOTAPlayer::GetNumSelectedUnits", "40 53 48 83 EC 20 44 8B 81 ? ? ? ? 48 8D 54 24 ? 48 8B D9 48 8B 0D ? ? ? ? E8 ? ? ? ? 44 8B 00");
+	FindAddress("C_DOTAPlayer::GetSelectedUnit", "48 89 5C 24 ? 57 48 83 EC 20 44 8B 81 ? ? ? ? 48 8B F9 48 8B 0D ? ? ? ? 48 63 DA 48 8D 54 24 ? E8 ? ? ? ? 44 8B 00");
+	FindAddress("C_DOTABaseAbility::GetCaster", "E8 ? ? ? ? 48 8B CF 0F B6 98 ? ? ? ? E8 ? ? ? ? 41 B9 ? ? ? ? 48 89 44 24 ? 8B D6 89 5C 24 20 48 8B CD 45 8D 41 03 E8 ? ? ? ?");
+	FindAddress("", "");
+	FindAddress("", "");
+	FindAddress("", "");
 }
