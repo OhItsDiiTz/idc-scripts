@@ -61,6 +61,7 @@ static main(void) {
 	FindAddress("g_pClientMode", "48 8D 0D ? ? ? ? 48 8B 0C C1 EB 02 33 C9 4C 8D 0D ? ? ? ? C7 44 24 ? ? ? ? ? 4C 8D 05 ? ? ? ?"); //global variable
 	FindAddress("enginevgui", "48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 84 C0 75 27 48 8B 03 48 8B CB FF 90 ? ? ? ?"); //global variable
 	FindAddress("CDOTA_DB_Main::s_pDashboard", "48 8B 0D ? ? ? ? 48 8B D6 48 8B 49 30 E8 ? ? ? ? B0 01 48 8B 5C 24 ? 48 8B 6C 24 ? 48 8B 74 24 ? 48 83 C4 20"); //global variable
+	FindAddress("g_pNetworkClientService", "48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 48 85 C0 74 1D 4C 8B 00 48 8B C8 41 FF 50 28 48 8B D6"); //global variable
 	
 	FindAddress("AngleVectors", "E8 ? ? ? ? 4C 8D 7F 08 4C 8D 4D 98 4C 89 7C 24 ? 4C 8D 45 88 48 8D 54 24 ? 48 8D 4D 10 E8 ? ? ? ? 49 8B 06 49 8B CE FF 90 ? ? ? ? 48 8B C8 E8 ? ? ? ?");
 	FindAddress("CDOTALobby::DumpToTextBuffer", "48 89 6C 24 ? 56 48 83 EC 60 48 8B 49 18 33 ED 48 8B F2 48 89 6C 24 ? 48 83 C1 08 48 89 6C 24 ?");
@@ -136,8 +137,7 @@ static main(void) {
 	FindAddress("CDOTA_UI_PopupManager::ShowPopup", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC 20 65 48 8B 04 25 ? ? ? ? 48 8B F9 44 8B 05 ? ? ? ? 4C 8B FA");
 	FindAddress("GetClientVersionForGCMessage", "48 8B 0D ? ? ? ? 48 8B 01 48 FF A0 58 02 00 00");
 	FindAddress("CMsgStartFindingMatch::Clear", "48 83 EC 28 48 89 6C 24 ? 33 ED 48 89 74 24 ? 8B 71 10 48 89 7C 24 ? 48 8B F9");
-	FindAddress("", "");
-	FindAddress("", "");
-	FindAddress("", "");
+	FindAddress("C_BaseEntity::OnDataChanged", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 8B F2 48 8B D9 FF 90 ? ? ? ? 48 8B 0D ? ? ? ? 48 8B F8");
+	FindAddress("DotaPostDataUpdateSpawnHackHelper", "48 8B C4 53 48 81 EC ? ? ? ? 48 89 78 18 4C 89 70 20 4C 8B F1 B9 ? ? ? ? E8 ? ? ? ? 48 8B D8 48 85 C0 74 0F");
 
 }
