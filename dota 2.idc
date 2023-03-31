@@ -62,6 +62,9 @@ static main(void) {
 	FindAddress("enginevgui", "48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 84 C0 75 27 48 8B 03 48 8B CB FF 90 ? ? ? ?"); //global variable
 	FindAddress("CDOTA_DB_Main::s_pDashboard", "48 8B 0D ? ? ? ? 48 8B D6 48 8B 49 30 E8 ? ? ? ? B0 01 48 8B 5C 24 ? 48 8B 6C 24 ? 48 8B 74 24 ? 48 83 C4 20"); //global variable
 	FindAddress("g_pNetworkClientService", "48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 48 85 C0 74 1D 4C 8B 00 48 8B C8 41 FF 50 28 48 8B D6"); //global variable
+	FindAddress("g_DOTAFogOfWarSystem", "48 8D 0D ? ? ? ? 41 8B D5 E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B D5 4C 89 B4 24 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?"); //global variable
+	FindAddress("g_iGameAppID", "8B 05 ? ? ? ? 85 C0 74 07 3D ? ? ? ? 75 1B 48 8B 0D ? ? ? ? 48 85 C9 74 0F 48 8B 01 FF 90 ? ? ? ? 89 05 ? ? ? ?"); //global variable
+	FindAddress("g_pMatchGroups", "48 8B 1D ? ? ? ? 48 89 6C 24 ? 48 85 DB 74 6C 48 8B 54 24 ? 48 8D 4B 38 E8 ? ? ? ? C7 83 ? ? ? ? ? ? ? ? 48 8B 53 70 48 85 D2 74 0C 48 83 C2 08 4C 8B C2 48 8B C2 EB 07"); //global variable
 	
 	FindAddress("AngleVectors", "E8 ? ? ? ? 4C 8D 7F 08 4C 8D 4D 98 4C 89 7C 24 ? 4C 8D 45 88 48 8D 54 24 ? 48 8D 4D 10 E8 ? ? ? ? 49 8B 06 49 8B CE FF 90 ? ? ? ? 48 8B C8 E8 ? ? ? ?");
 	FindAddress("CDOTALobby::DumpToTextBuffer", "48 89 6C 24 ? 56 48 83 EC 60 48 8B 49 18 33 ED 48 8B F2 48 89 6C 24 ? 48 83 C1 08 48 89 6C 24 ?");
@@ -139,5 +142,30 @@ static main(void) {
 	FindAddress("CMsgStartFindingMatch::Clear", "48 83 EC 28 48 89 6C 24 ? 33 ED 48 89 74 24 ? 8B 71 10 48 89 7C 24 ? 48 8B F9");
 	FindAddress("C_BaseEntity::OnDataChanged", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 8B F2 48 8B D9 FF 90 ? ? ? ? 48 8B 0D ? ? ? ? 48 8B F8");
 	FindAddress("DotaPostDataUpdateSpawnHackHelper", "48 8B C4 53 48 81 EC ? ? ? ? 48 89 78 18 4C 89 70 20 4C 8B F1 B9 ? ? ? ? E8 ? ? ? ? 48 8B D8 48 85 C0 74 0F");
+	FindAddress("CDOTA_MinimapRenderer::Render", "40 55 53 56 41 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B F2 48 8B D9 45 33 ED 48 8D 0D ? ? ? ? 41 8B D5 E8 ? ? ? ?");
+	FindAddress("CDOTA_MinimapRenderer::RenderCreepCamps", "40 55 57 41 54 41 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B EA 48 8B F9 33 D2 48 8D 0D ? ? ? ? E8 ? ? ? ? 4C 8B E0 48 85 C0 0F 84 ? ? ? ? 4C 89 BC 24 ? ? ? ?");
+	FindAddress("CDOTA_MinimapRenderer::RenderRoshanCamp", "40 55 53 56 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 4C 8B F2 48 8B D9 45 33 FF 48 8D 0D ? ? ? ? 41 8B D7 E8 ? ? ? ? 48 8B F0 48 85 C0 0F 84 ? ? ? ? E8 ? ? ? ?");
+	FindAddress("GetRoshanSpawner", "E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 0F 57 C0 48 89 BC 24 ? ? ? ? 66 0F 7F 44 24 ? F3 0F 10 05 ? ? ? ?");
+	FindAddress("CDOTA_MinimapRenderer::RenderRunes", "40 55 41 54 41 55 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B F9 45 33 ED 41 8B CD 4C 8B E2 E8 ? ? ? ? 83 F8 01 74 19");
+	FindAddress("MainViewOrigin", "E8 ? ? ? ? 8B CB F2 0F 10 00 F2 0F 11 06 8B 40 08 89 46 08 E8 ? ? ? ? 4C 8D 4E 24 8B D3");
+	FindAddress("MainViewAngles", "E8 ? ? ? ? 4C 8D 4E 24 8B D3 4C 8D 46 18 48 8B CF F2 0F 10 00 F2 0F 11 46 ? 8B 40 08");
+	FindAddress("ReadSteamRemoteStorageFile", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 33 FF 48 8B F2 F7 41 ? ? ? ? ? 48 8B D9 48 89 79 10");
+	FindAddress("CDOTA_UI_Popup_Generic::SetDisplayTwoOptions", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 50 48 8B 84 24 ? ? ? ? 4C 8B FA 33 D2 4C 89 4C 24 ?");
+	FindAddress("CDOTALobby::GetTeamDetails", "83 FA 01 77 1B 48 8B 41 18 3B 50 40 7D 12 48 8B 40 48 48 63 CA 48 8B 44 C8 ? 83 78 50 00 75 02 33 C0 C3");
+	FindAddress("CDOTA_DB_Play::StartLobbyGame", "40 53 56 41 57 48 81 EC ? ? ? ? 0F B6 DA 4C 8B F9 E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? E8 ? ? ? ? 48 8D 88 ? ? ? ? E8 ? ? ? ?");
+	FindAddress("GetMapNameForGameMode", "40 53 48 83 EC 20 48 8B D9 48 85 C9 75 08 33 C0 48 83 C4 20 5B C3 48 8B 51 18 48 8B 82 ? ? ? ? 48 83 E0 FC");
+	FindAddress("GCClientSystem", "E8 ? ? ? ? 48 8B CE 48 8D 98 ? ? ? ? 48 8D 53 38 E8 ? ? ? ? 48 8D 05 ? ? ? ? 89 BE ? ? ? ? 48 8B 7C 24 ? 48 89 06 48 89 9E ? ? ? ? C7 86 ? ? ? ? ? ? ? ?");
+	FindAddress("CGCClientSystem::BSendMessage", "E8 ? ? ? ? 48 8B 4C 24 ? 48 89 5C 24 ? 48 8B 41 08 48 83 E0 FC F6 41 08 01 74 03 48 8B 00 48 85 C0 74 05 F6 00 01 74 0F 48 85 C9 74 0A 48 8B 01 BA ? ? ? ? FF 10 48 8D 4C 24 ? 48 89 6C 24 ? E8 ? ? ? ? 48 8B BC 24 ? ? ? ? 48 8B AC 24 ? ? ? ? 4C 8B B4 24 ? ? ? ? B0 01 48 81 C4 ? ? ? ? 41 5F 5E 5B C3");
+	FindAddress("MatchGroups", "E8 ? ? ? ? 41 8B 57 5C 48 8B C8 E8 ? ? ? ? 48 85 C0 74 21 48 8B 40 10 4C 8D 05 ? ? ? ? 48 85 C0 48 8D 15 ? ? ? ? 49 8B CD 4C 0F 45 C0 E8 ? ? ? ?");
+	FindAddress("IsAppDota2Experimental", "E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 48 8B 05 ? ? ? ? BA ? ? ? ? 48 89 9C 24 ? ? ? ? 8B 08 FF 15 ? ? ? ?");
+	FindAddress("panorama::CPanel2D::SetDialogVariable", "E8 ? ? ? ? 33 D2 48 8D 4C 24 ? FF 15 ? ? ? ? 41 8B 04 34 39 05 ? ? ? ? 0F 8F ? ? ? ? 48 8B 4B 08 0F B7 15 ? ? ? ? 48 8B 01 FF 90 ? ? ? ? F3 41 0F 10 57 ?");
+	FindAddress("CDOTA_DB_Play::SendFindMatchMessage", "44 88 4C 24 ? 89 54 24 10 53 55 41 54 41 55 41 56 48 83 EC 50 48 63 EA 45 0F B6 F1 45 8B E0 48 8B D9 83 FD 0E 77 37");
+	FindAddress("", "");
+	FindAddress("", "");
+	FindAddress("", "");
+	FindAddress("", "");
+	FindAddress("", "");
 
 }
+
+
