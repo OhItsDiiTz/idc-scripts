@@ -39,23 +39,18 @@ static FindAddress(func, patrn) {
 
 
 static main(void) {
-	
-	//LiveAntiCheat_ Functions
+	FindAddress("AimAssist_ArchiveState", "48 89 5C 24 ? 57 48 83 EC 20 48 63 C1 48 8B FA 48 69 D8 ? ? ? ? BA ? ? ? ? 48 8B CF 48 03 1D ? ? ? ? 4C 8D 83 ? ? ? ? FF 97 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? 84 C0 74 33");
+	FindAddress("AimAssist_ClearSlowAim", "48 89 7C 24 ? 48 63 C1 48 8D 7C 24 ? 33 C9 48 69 C0 ? ? ? ? 48 03 05 ? ? ? ? C6 80 ? ? ? ? ? 48 89 88 ? ? ? ? 33 C0 B9 ? ? ? ? F3 AA 48 8B 7C 24 ? C3");
+	FindAddress("AimAssist_SetSlowAim", "48 89 7C 24 ? 48 63 C1 48 8D 7C 24 ? 48 69 C0 ? ? ? ? B9 ? ? ? ? 48 03 05 ? ? ? ? C6 80 ? ? ? ? ? C5 FA 11 88 ? ? ? ? C5 FA 11 90 ? ? ? ? 33 C0 F3 AA 48 8B 7C 24 ? C3");
+	FindAddress("AimAssist_Setup", "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 63 E9 45 8B E0 4C 8B FA 41 B8 ? ? ? ? 48 69 DD ? ? ? ? 33 D2 48 03 1D ? ? ? ?");
 	FindAddress("LiveAntiCheat_FeatureIsBanned", "48 83 EC 28 4C 63 D1 45 33 C9 49 69 C2 ? ? ? ? 48 63 CA 45 8B C1 48 8D 15 ? ? ? ? 48 03 C2");
 	FindAddress("LiveAntiCheat_BanDisconnect", "48 83 EC 28 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? E8 ? ? ? ? 33 D2 33 C9 48 83 C4 28 E9 ? ? ? ?");
-	
-	//LiveStorage_ Functions
 	FindAddress("LiveStorage_IsTimeSynced", "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? E8 ? ? ? ? 44 8B 05 ? ? ? ? 89 44 24 38");
 	FindAddress("LiveStorage_GetUTC", "E8 ? ? ? ? 44 8B 05 ? ? ? ? 89 44 24 38 45 85 C0 74 09");
 	FindAddress("LiveStorage_GetPersistentDataDefVersion", "48 83 EC 28 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 85 C0 75 0A B8 ? ? ? ? 48 83 C4 28 C3");
 	FindAddress("LiveStorage_EnsureWeHaveStats", "40 53 48 83 EC 20 48 63 D9 48 8D 05 ? ? ? ? 48 69 CB ? ? ? ? 80 BC 01 ? ? ? ? ? 74 0E 83 BC 01 ? ? ? ? ? 0F 84 ? ? ? ?");
-	FindAddress("LiveStorage_DiscardStats", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8D 2D ? ? ? ? 48 63 FA 4C 69 CF ? ? ? ? 48 63 F1 8B D7 4C 69 C6 ? ? ? ? 48 69 DE ? ? ? ?");
 	FindAddress("LiveStorage_BeginGame", "40 53 48 83 EC 20 E8 ? ? ? ? 48 63 D8 48 8D 0D ? ? ? ? 48 8B C3 80 BC D9 ? ? ? ? ? 75 08");
-	
-	//UI_ Functions
 	FindAddress("UI_SetMap", "48 89 5C 24 ? 57 48 83 EC 20 48 8B FA 48 8B D9 4C 8B C1 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 80 3B 00");
-	
-	//Scr_ functions
 	FindAddress("Scr_SetString", "48 89 5C 24 ? 57 48 83 EC 20 48 8B F9 8B DA 39 11 0F 84 ? ? ? ? 85 D2 74 77 48 8D 15 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ?");
 	FindAddress("Scr_ParamError", "40 53 48 83 EC 20 41 8D 40 01 48 8B DA 89 82 ? ? ? ? 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?");
 	FindAddress("Scr_ObjectError", "40 53 48 83 EC 20 48 8B DA C7 82 ? ? ? ? ? ? ? ? 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?");
@@ -65,8 +60,6 @@ static main(void) {
 	FindAddress("Scr_GetInt", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B D9 8B FA 0F B6 89 ? ? ? ? E8 ? ? ? ? 48 8D 35 ? ? ? ? 3B BB ? ? ? ? 73 62 48 8B 8B ? ? ? ? 8B C7");
 	FindAddress("Scr_GetAnim", "48 89 5C 24 ? 55 56 41 56 48 83 EC 20 48 8B F1 8B DA 0F B6 89 ? ? ? ? 49 8B E8 E8 ? ? ? ? 3B 9E ? ? ? ? 73 7E 4C 8B B6 ? ? ? ? 8B C3");
 	FindAddress("Scr_AddBool", "E8 ? ? ? ? 48 8B 5C 24 ? 48 83 C4 30 5F C3 48 8B D3 B9 ? ? ? ?");
-	
-	//Dlog_ Functions
 	FindAddress("DLog_RecordContext", "40 53 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 8B D9 E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B CB E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 83 7B 3C 00 0F 85 ? ? ? ? 44 8B 0B");
 	FindAddress("DLog_GetHooks", "E8 ? ? ? ? 48 8B C8 48 8B 10 48 83 C4 28 48 FF A2 C0 00 00 00");
 	FindAddress("DLog_Record", "40 55 56 57 41 54 41 55 41 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 48 63 B5 ? ? ? ? 4C 8B F1 4C 8B AD ? ? ? ? 49 8B F8 48 89 4C 24 ? 4C 8B E2 48 8B 0D ? ? ? ?");
@@ -114,16 +107,12 @@ static main(void) {
 	FindAddress("DLog_BeginEvent", "40 53 55 57 48 83 EC 20 41 0F B6 F8 48 8B EA 48 8B D9 E8 ? ? ? ?");
 	FindAddress("DLog_AddMetric", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 30 49 8B D9 49 8B F8 48 8B F2 48 8B E9 E8 ? ? ? ? 4C 8B CF 48 89 5C 24 ? 4C 8B C6 48 8B D5 48 8B C8 4C 8B 10 41 FF 52 60");
 	FindAddress("DLogEvent_Base::Send", "48 89 5C 24 ? 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ?");
-	
-	//LUI_ Functions
 	FindAddress("LUI_SetTableString", "E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 8B D3 E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? B2 01 E8 ? ? ? ?");
 	FindAddress("LUI_SetTableInt", "E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? B2 01 E8 ? ? ? ? 48 8B 0D ? ? ? ? E8 ? ? ? ? 48 8B 0D ? ? ? ? 48 83 C4 20 5B E9 ? ? ? ?");
 	FindAddress("LUI_SetTableBool", "E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 8B D7 E8 ? ? ? ? 48 8B 0D ? ? ? ? E8 ? ? ? ? 48 8B 0D ? ? ? ? E8 ? ? ? ?");
 	FindAddress("LUI_EndEvent", "40 53 48 83 EC 20 48 8B D1 B9 ? ? ? ? E8 ? ? ? ? 8B 0D ? ? ? ? 0F B6 D8 85 C9 7E 30");
 	FindAddress("LUI_BeginTable", "E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 8B D3 E8 ? ? ? ? 4C 8B 05 ? ? ? ? 48 8D 0D ? ? ? ?");
 	FindAddress("LUI_BeginEvent", "E8 ? ? ? ? 84 C0 74 7B 4C 8B 0D ? ? ? ? 48 8D 0D ? ? ? ? 33 D2 44 8D 42 01 E8 ? ? ? ?");
-	
-	//Dvar_ Functions
 	FindAddress("Dvar_SetBool_Internal", "E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 33 D2 E8 ? ? ? ? E8 ? ? ? ? 33 D2 33 C9 48 83 C4 28 E9 ? ? ? ?");
 	FindAddress("Dvar_SetBoolByName", "E9 ? ? ? ? E8 ? ? ? ? 84 C0 75 07 B1 01 E8 ? ? ? ?");
 	FindAddress("Dvar_SetString_Internal", "E8 ? ? ? ? 48 8B 0D ? ? ? ? 45 33 C0 B2 01 E8 ? ? ? ? 33 C0 48 83 C4 20 5B C3");
@@ -132,8 +121,6 @@ static main(void) {
 	FindAddress("Dvar_SetIntByName", "E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 05 ? ? ? ? 8B CF 8B 1C 02 E8 ? ? ? ?");
 	FindAddress("Dvar_GetStringByName", "E8 ? ? ? ? 4C 8B C0 48 8D 4D 50 BA ? ? ? ? E8 ? ? ? ? 48 8D 05 ? ? ? ? C6 05 ? ? ? ? ? B9 ? ? ? ? C6 05 ? ? ? ? ? C6 05 ? ? ? ? ? C6 05 ? ? ? ? ? C6 05 ? ? ? ? ?");
 	FindAddress("Dvar_FindMalleableVar", "E8 ? ? ? ? 48 85 C0 75 0C 48 8D 05 ? ? ? ? 48 83 C4 28 C3");
-	
-	//Live_ Functions
 	FindAddress("Live_ThrowError", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 8B F1 49 8B F8 48 8D 0D ? ? ? ? 48 8B DA E8 ? ? ? ?");
 	FindAddress("Live_GetOnlineUserName", "48 89 5C 24 ? 57 48 83 EC 20 49 63 F8 48 8B DA 4C 8B C7 E8 ? ? ? ? 84 C0 74 0D");
 	FindAddress("Live_GetMapSource", "40 53 48 83 EC 20 8B D9 85 C9 79 0B B8 ? ? ? ? 48 83 C4 20 5B C3");
@@ -145,14 +132,10 @@ static main(void) {
 	FindAddress("Live_CancelConnecting", "48 83 EC 28 B2 1E 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8D 0D ? ? ? ? 48 83 C4 28 E9 ? ? ? ?");
 	FindAddress("Live_DemonwareDisconnected", "E8 ? ? ? ? 33 D2 48 8B CB 48 83 C4 20 5B E9 ? ? ? ? 48 83 C4 20 5B C3");
 	FindAddress("Live_IsInLiveGame", "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B CE E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 41 8B CE 4C 89 BC 24 ? ? ? ? E8 ? ? ? ? BA ? ? ? ? 8B C8 44 8B F8 E8 ? ? ? ?");
-	
-	//GetInstance Functions
 	FindAddress("PublisherVariableManager::GetInstance", "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 74 10 E8 ? ? ? ? 84 C0 74 07");
 	FindAddress("Online_PatchStreamer::GetInstance", "E8 ? ? ? ? 33 D2 48 8B C8 E8 ? ? ? ? 0F B7 C0 48 83 C4 28 C3");
 	FindAddress("DWServicesAccess::GetInstance", "E8 ? ? ? ? 8B 93 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 83 C0 FE 83 F8 02");
 	FindAddress("GWeaponMap::GetInstance", "E8 ? ? ? ? 66 39 74 24 ? 74 24 4C 8D 44 24 ? 48 8B D7");
-	
-	//MSG_ Functions
 	FindAddress("MSG_WriteBitsCompress", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC 30 4C 8B 7C 24 ? 33 DB 89 5C 24 68 49 8B E8 49 63 F9 4C 8B F2 41 89 1F 45 85 C9 7E 3D");
 	FindAddress("MSG_ReadByte", "E8 ? ? ? ? 8B 15 ? ? ? ? 48 8B CB 8B E8 E8 ? ? ? ? 48 8B CB 48 8B F0 E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 0D ? ? ? ? 89 AC 0A ? ? ? ? 89 B4 0A ? ? ? ?");
 	FindAddress("MSG_ReadBits", "E8 ? ? ? ? 48 8B CB 48 8B F0 E8 ? ? ? ? 48 69 D7 ? ? ? ? 48 8D 0D ? ? ? ? 89 AC 0A ? ? ? ? 89 B4 0A ? ? ? ? 89 84 0A ? ? ? ? E8 ? ? ? ?");
@@ -163,8 +146,6 @@ static main(void) {
 	FindAddress("MSG_WriteLong", "4C 8B C9 8B 49 28 45 8B 41 18 8D 41 08 41 C1 E0 03 41 3B C0 7E 05 41 C6 01 01 C3");
 	FindAddress("MSG_WriteData", "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 48 8B F9 4D 63 F0 8B 49 28 48 8B DA 8B 47 18 42 8D 34 F5 ? ? ? ?");
 	FindAddress("MSG_WriteString", "48 83 EC 28 4C 8B D1 48 C7 C0 ? ? ? ? 66 90 48 FF C0 80 3C 02 00 75 F7 48 3D ? ? ? ?");
-	
-	//CL_ Functions
 	FindAddress("CL_UICharacter_Reset", "40 53 48 83 EC 20 48 63 C1 33 D2 48 69 D8 ? ? ? ? 48 8D 05 ? ? ? ? 41 B8 ? ? ? ? 48 03 D8 48 8D 4B 02 E8 ? ? ? ? B8 ? ? ? ? 66 89 03 48 83 C4 20 5B C3");
 	FindAddress("CL_Streaming_SetMaxWorldRequestCount", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 63 E9 48 8D 3D ? ? ? ? 8B F2 48 8B 3C EF 48 8D 4F 30 FF 15 ? ? ? ?");
 	FindAddress("CL_Streaming_SetMaxClientRequestCount", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 63 C1 48 8D 3D ? ? ? ? 48 63 EA 41 8B F0 48 8D 0C 80 4C 8D 0C 4D ? ? ? ?");
@@ -200,8 +181,6 @@ static main(void) {
 	FindAddress("CL_InputMP_ReadyToSendPacket", "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? 84 C0 74 0D E8 ? ? ? ? 84 C0 0F 85 ? ? ? ?");
 	FindAddress("CL_InputMP_SavePredictedData", "E8 ? ? ? ? 8B CB E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? 84 C0 74 0D E8 ? ? ? ? 84 C0 0F 85 ? ? ? ?");
 	FindAddress("CL_MainMP_TogglePauseResumeGame", "E8 ? ? ? ? 8B CF E8 ? ? ? ? 4C 8B AC 24 ? ? ? ? 4C 8B A4 24 ? ? ? ? 84 C0 74 1B");
-	
-	//CG_ Functions
 	FindAddress("CG_ViewmodelShieldHitsProcess", "E8 ? ? ? ? 33 C9 E8 ? ? ? ? 33 C9 E8 ? ? ? ? 33 C9 E8 ? ? ? ? 48 8B 03 48 8B CB 48 83 C4 20 5B 48 FF 60 10");
 	FindAddress("CG_EventLod_ShouldPerformEvent", "40 57 48 83 EC 20 49 8B F8 4D 85 C0 74 6F 41 80 38 00 74 69 44 0F B6 CA");
 	FindAddress("CG_CameraUpdateOrderFix_PostPhysicsWorkers_Phase2", "48 89 5C 24 ? 57 48 83 EC 20 48 8B F9 E8 ? ? ? ? 8B 8F ? ? ? ? E8 ? ? ? ? 8B 9F ? ? ? ? 48 8D 15 ? ? ? ?");
@@ -213,13 +192,9 @@ static main(void) {
 	FindAddress("CG_ViewMP_UpdateThirdPerson", "E8 ? ? ? ? 8B CB E8 ? ? ? ? 8B CB E8 ? ? ? ? E8 ? ? ? ? 8B CB E8 ? ? ? ? 8B CB E8 ? ? ? ? 8B CB 48 83 C4 20 5B E9 ? ? ? ?");
 	FindAddress("CG_View_CalcFov", "48 8B C4 48 89 58 18 48 89 70 20 55 57 41 55 41 56 41 57 48 8D 68 C8 48 81 EC ? ? ? ?");
 	FindAddress("CG_MainMP_Frame", "E8 ? ? ? ? 8B CF E8 ? ? ? ? 8B CF E8 ? ? ? ? 4C 8B AC 24 ? ? ? ? 4C 8B A4 24 ? ? ? ? 84 C0");
-	
-	//CgWeaponSystemMP Functions
 	FindAddress("CgWeaponSystemMP::BulletHitEvent_Internal", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 41 8B F8 8B EA 4C 8B 84 24 ? ? ? ?");
 	FindAddress("CgWeaponSystemMP::BulletImpactEffects", "4C 8B DC 49 89 5B 10 45 89 4B 20 49 89 4B 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 48 8B 9C 24 ? ? ? ?");
 	FindAddress("CgWeaponSystemMP::BulletHitEvent_SimulateExit", "40 55 53 56 57 41 54 41 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? C5 F8 29 B4 24 ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? C5 FA 10 1D ? ? ? ?");
-	
-	//BlackBox Functions
 	FindAddress("Blackbox_SendSession", "48 89 5C 24 ? 4C 89 4C 24 ? 4C 89 44 24 ? 88 54 24 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? E8 ? ? ? ?");
 	FindAddress("BB_WriteInstanceData", "40 55 53 48 8D AC 24 ? ? ? ? B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 8B D9");
 	FindAddress("BB_Throttle_f", "40 53 48 83 EC 20 48 63 0D ? ? ? ? 48 8D 1D ? ? ? ? 83 7C 8B ? ? 7C 44 48 8B 4C CB ? 48 8B 49 10 E8 ? ? ? ?");
@@ -240,11 +215,7 @@ static main(void) {
 	FindAddress("BB_Enable_f", "48 8D 15 ? ? ? ? E8 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? 48 8B C8 4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? E8 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? 48 8B C8 4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 33 D2");
 	FindAddress("BB_Disable_f", "48 8D 15 ? ? ? ? E8 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? 48 8B C8 4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 33 D2 48 8D 1D ? ? ? ?");
 	FindAddress("BB_ClearStringCache", "E8 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 33 C9 48 83 C4 28 E9 ? ? ? ?");
-	
-	//Party_ Functions
 	FindAddress("Party_PartiesAcrossGamemodesFeatureEnabled", "E8 ? ? ? ? 84 C0 75 16 8B CE E8 ? ? ? ? E8 ? ? ? ? 48 8B C8 8B D6 E8 ? ? ? ?");
-	
-	//Misc/Unsorted Functions
 	FindAddress("I_CleanStr", "E8 ? ? ? ? BE ? ? ? ? 4D 8B C7 48 8D 8C 24 ? ? ? ?");
 	FindAddress("ScrCmd_Unlink_Internal", "40 53 48 83 EC 70 48 8B D9 0F B6 CA E8 ? ? ? ? 48 8B 8B ? ? ? ? 48 85 C9 74 30 8B 81 ? ? ? ? C1 E8 0B A8 01");
 	FindAddress("R_RegisterFont", "E8 ? ? ? ? 48 BB ? ? ? ? ? ? ? ? 48 89 05 ? ? ? ? 48 8B CB BA ? ? ? ? E8 ? ? ? ? BA ? ? ? ? 48 89 05 ? ? ? ? 48 8B CB E8 ? ? ? ? 48 89 05 ? ? ? ? 8B 05 ? ? ? ? 83 C0 D0 89 05 ? ? ? ?");
@@ -273,16 +244,14 @@ static main(void) {
 	FindAddress("BG_GetClipSize", "48 8B C4 48 89 58 08 48 89 70 18 57 48 81 EC ? ? ? ? C5 F8 29 70 ? C5 F8 29 78 ? 48 8B 05 ? ? ? ?");
 	FindAddress("Com_GameMode_SupportsFeature", "0F B6 05 ? ? ? ? 4C 8D 05 ? ? ? ? 48 69 D0 ? ? ? ? 8B C9 42 0F B6 84 02 ? ? ? ? 41 8B 84 80 ? ? ? ? 41 85 84 88 ? ? ? ? 0F 95 C0 C3");
 	FindAddress("ClNetperfTelemetry::TrackUsercmd", "48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 30 41 0F B6 F1 41 8B E8 44 8B F2 48 8B F9 E8 ? ? ? ? 84 C0");
-	FindAddress("NetConnection::SendP2P", "40 53 56 57 48 83 EC 50 48 8B 05 ? ? ? ? 48 33 C4 48 89 44 24 ? 48 8B D9 41 8B F1 48 8B 09 49 8B F8 E8 ? ? ? ? 48 8D 54 24 ? 48 8B C8 E8 ? ? ? ?");
+	FindAddress("NetConnection::SendP2P", "48 89 5C 24 ? 55 56 57 48 83 EC 50 48 8B 05 ? ? ? ? 48 33 C4 48 89 44 24 ? 48 8B F9 48 8D 54 24 ? 48 8B 09 41 8B E9 49 8B F0 E8 ? ? ? ? 8B 4F 18 8B 47 14");
 	FindAddress("OnlineMgr::OnDisconnect", "48 89 5C 24 ? 57 48 83 EC 20 90 0F B6 FA 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 90 48 8B 99 ? ? ? ? 48 85 DB");
 	FindAddress("Online_Telemetry_Frame", "E8 ? ? ? ? E8 ? ? ? ? 84 C0 74 16 8B CB E8 ? ? ? ?");
 	FindAddress("ClNetperfTelemetry::Frame", "40 53 48 83 EC 20 48 8B D9 E8 ? ? ? ? 84 C0 74 75 80 BB ? ? ? ? ?");
-	FindAddress("Online_Loot::GetItemQuantity", "E8 ? ? ? ? 89 45 7F 85 C0 74 6D 49 8B 0C 24 E8 ? ? ? ? 89 45 77 85 C0 75 1A 44 8B C6 41 8B D7 49 8B CE");
+	FindAddress("Online_Loot::GetItemQuantity", "E8 ? ? ? ? 85 C0 0F 85 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? E8 ? ? ? ? 48 8D 15 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 89 44 24 ? E8 ? ? ? ? 8B C0 48 89 84 24 ? ? ? ? E8 ? ? ? ? 48 8D 15 ? ? ? ? 48 63 DE 48 8B C8 E8 ? ? ? ?");
 	FindAddress("CgCompassSystemMP::ActorUpdatePos", "E8 ? ? ? ? 48 8B CB E8 ? ? ? ? 8B 43 08 89 43 60");
 	FindAddress("CompassActor_SetLastEnemyPosFromLastPos", "E8 ? ? ? ? 8B 43 08 89 43 60 4C 8B B4 24 ? ? ? ?");
 	FindAddress("atof", "E8 ? ? ? ? 48 8B 83 ? ? ? ? C5 FB 5A C8 C5 FA 11 88 ? ? ? ?");
-	
-	//Host only functions
 	FindAddress("G_Items_FillClip", "40 55 57 41 54 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 40 4C 8B F9");
 	FindAddress("G_Items_AddAmmo", "40 55 53 57 41 54 41 55 41 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 60");
 	FindAddress("G_Items_InitializeAmmo", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 30 48 8B F1 45 0F B6 F1 48 8B CA 45 0F B6 E0 48 8B FA E8 ? ? ? ?");
@@ -300,17 +269,85 @@ static main(void) {
 	FindAddress("ClStatic::SetActiveGameType", "48 89 5C 24 ? 57 48 83 EC 20 48 8B F9 48 8B DA 48 81 C1 ? ? ? ? 80 39 00 74 05 80 3A 00 75 32");
 	FindAddress("ClStatic::SetGameMapName", "48 81 C1 ? ? ? ? 80 39 00 74 05 80 3A 00 75 32 90 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 65 FE 04 25 ? ? ? ? 90 4C 8B C2");
 	FindAddress("BG_Bots_IsBotMatchMakingAllowedForPlaylist", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC 20 E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 4C 8B 15 ? ? ? ?");
+	FindAddress("AngleVectors", "E8 ? ? ? ? C5 FA 10 23 C5 FA 10 73 ? C5 FA 10 6B ? C5 CA 59 C6 C5 DA 59 CC C5 F2 58 D0");
+	FindAddress("AnglesToAxis", "E8 ? ? ? ? C5 FC 10 44 24 ? 8B 84 24 ? ? ? ? 48 8D 94 24 ? ? ? ? C5 FC 11 84 24 ? ? ? ? 89 84 24 ? ? ? ? 48 8D 8C 24 ? ? ? ? C5 F8 77");
+	FindAddress("AnglesToQuat", "E8 ? ? ? ? 48 8D 96 ? ? ? ? 48 8B CF 4C 8D 05 ? ? ? ? E8 ? ? ? ? 48 8B AC 24 ? ? ? ?");
+	FindAddress("BG_Accessory_GetWeapon", "40 53 48 83 EC 20 80 3D ? ? ? ? ? 49 8B D8 C5 FC 10 05 ? ? ? ? C4 C1 7C 11 00 C5 FC 10 0D ? ? ? ? C4 C1 7C 11 48 ? C5 FB 10 05 ? ? ? ? C4 C1 7B 11 40 ? 8B 05 ? ? ? ? 41 89 40 48 74 49 8B 82 ? ? ? ? 83 F8 7F 74 3E 4C 8D 05 ? ? ? ? 49 83 3C C0 ?");
+	FindAddress("BG_AnimationMP_RegisterSuit", "48 83 EC 28 E8 ? ? ? ? 83 F8 03 77 0D 48 98 48 8D 0D ? ? ? ? C6 04 08 01 48 83 C4 28 C3");
+	FindAddress("BG_AnimationMP_RegisterSuitAnimIndexes", "84 C9 74 16 48 8D 0D ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E9 ? ? ? ? C3");
+	FindAddress("BG_ClearMeleeChargeCmd", "E8 ? ? ? ? C5 F9 EF C0 B8 ? ? ? ? 66 89 85 ? ? ? ? C5 FC 11 85 ? ? ? ? C5 FC 11 85 ? ? ? ?");
+	FindAddress("BG_Demeanor_GetTargetState", "E8 ? ? ? ? 83 F8 01 75 17 48 8B 83 ? ? ? ? 48 85 C0 74 1C");
+	FindAddress("BG_FindBaseWeaponForName", "E8 ? ? ? ? C5 FC 10 00 C5 FC 11 84 24 ? ? ? ? C5 FC 10 48 ? C5 FC 11 8C 24 ? ? ? ? C5 FB 10 40 ? C5 FB 11 84 24 ? ? ? ? 8B 40 48 89 84 24 ? ? ? ? 40 84 ED 75 29 48 8B CB C5 F8 77 E8 ? ? ? ?");
+	FindAddress("BG_Gesture_GetIndexBySlot", "E8 ? ? ? ? 45 0F B6 CF 40 88 6C 24 ? 44 8B C7 44 89 74 24 ? 8B D0 48 8B CE E8 ? ? ? ?");
+	FindAddress("BG_Gesture_GetIndexFromGesture", "48 83 EC 28 E8 ? ? ? ? 0F B7 C8 48 8D 05 ? ? ? ? 8B 04 88 85 C0 74 07 FF C8 48 83 C4 28 C3 B8 ? ? ? ? 48 83 C4 28 C3");
+	FindAddress("BG_Gesture_GetStartTime", "E8 ? ? ? ? 3B D8 74 09 83 FD 03 0F 84 ? ? ? ? 49 8B CF E8 ? ? ? ?");
+	FindAddress("BG_Gesture_IsPlayingByIndex", "45 33 C9 48 8D 81 ? ? ? ? 66 0F 1F 44 00 ? 83 78 FC 00 74 04 39 10 74 10 41 FF C1 48 83 C0 2C 41 83 F9 02 72 E9 32 C0 C3");
+	FindAddress("BG_GetADSZoomLevelFraction", "40 53 55 56 57 41 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 45 0F B6 F9 49 8B F8 48 8B DA 48 8B E9 E8 ? ? ? ?");
+	FindAddress("BG_GetADSZoomLevelWeights", "33 C0 48 89 02 89 42 08 C5 F8 28 D0 0F 1F 40 00 8D 48 01 C5 F0 57 C9 C5 F2 2A C9 C5 F8 2F D1 76 08 8B C1 83 F9 03 7C E8");
+	FindAddress("BG_GetAllWeaponAttachmentsWithIds", "E8 ? ? ? ? 45 33 C9 85 C0 74 1A 48 8D 8C 24 ? ? ? ? 0F B6 11 3B D3 74 31");
+	FindAddress("BG_GetAttachmentModel", "80 79 34 00 4C 8B C9 74 67 85 D2 74 63 8D 42 FF 85 C0 79 04 33 C0 EB 15");
+	FindAddress("BG_GetCenterReticle", "48 89 5C 24 ? 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 0F B7 01 4C 8D 15 ? ? ? ? 4C 8B 9C 24 ? ? ? ?");
+	FindAddress("BG_GetEquippedWeaponIndex", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 4C 8B 71 08 48 8D BA ? ? ? ? 33 F6 49 8B E8 8B DE 0F 1F 40 00");
+	FindAddress("BG_GetFirstEquippedWeaponBySlot", "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 20 45 8B F8 48 89 6C 24 ? 48 8B F2 4C 8D 25 ? ? ? ?");
+	FindAddress("BG_GetFriendlyLaserType", "E8 ? ? ? ? 48 8B 54 24 ? 48 89 02 48 85 C0 75 0D 48 8B 0D ? ? ? ? 48 89 0A 48 8B C1");
+	FindAddress("BG_GetGameTypeQuickForName", "E8 ? ? ? ? 3C 01 75 05 48 83 C4 28 C3");
+	FindAddress("BG_GetHeatSmokeProperties", "40 53 56 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 0F B7 01 48 8D 1D ? ? ? ? 49 8B F1 49 8B F8");
+	FindAddress("BG_GetHudOutlineAltInScopeColor", "E8 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8B D3 88 84 24 ? ? ? ? 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 88 84 24 ? ? ? ? 48 8B D3 48 8B CF");
+	FindAddress("BG_GetHudOutlineDepthTest", "E8 ? ? ? ? 48 8B D3 88 84 24 ? ? ? ? 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 88 84 24 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ?");
+	FindAddress("BG_GetHudOutlineFill", "E8 ? ? ? ? 4C 8D 44 24 ? 88 84 24 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ?");
+	FindAddress("BG_GetHudOutlineFillColor0", "E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8B D3");
+	FindAddress("BG_GetHudOutlineFillColor1", "E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8B D3");
+	FindAddress("BG_GetHudOutlineOccludedOutlineColor", "E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8D 8E ? ? ? ? 48 8D 54 24 ?");
+	FindAddress("BG_GetHudOutlineOccludedInlineColor", "E8 ? ? ? ? 4C 8D 44 24 ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8D 8E ? ? ? ?");
+	FindAddress("BG_GetHudOutlineOccludedInteriorColor", "E8 ? ? ? ? 48 8B D3 48 8B CF E8 ? ? ? ? 48 8D 8E ? ? ? ? 48 8D 54 24 ? C5 FA 11 84 24 ? ? ? ? E8 ? ? ? ?");
+	FindAddress("BG_GetHudOutlineWidth", "E8 ? ? ? ? 48 8D 8E ? ? ? ? 48 8D 54 24 ? C5 FA 11 84 24 ? ? ? ? E8 ? ? ? ? 48 8B 8C 24 ? ? ? ?");
+	FindAddress("CG_View_SetHudOutline", "E8 ? ? ? ? 8B CE E8 ? ? ? ? 48 8D 93 ? ? ? ? 8B CE E8 ? ? ? ? 48 8B CB E8 ? ? ? ?");
+	FindAddress("BG_GetNumWeapons", "E8 ? ? ? ? 83 F8 02 73 04 85 F6 75 1F 83 FE 02");
+	FindAddress("BG_GetReticleType", "E8 ? ? ? ? 4C 8D 4D FF 44 0F B6 C3 49 8B D4 41 8B CD C5 FA 11 74 24 ? C5 FA 11 7C 24 ? 8B F8");
+	FindAddress("BG_GetSideReticle", "E8 ? ? ? ? 48 83 BC 24 ? ? ? ? ? 0F 85 ? ? ? ? 80 7C 24 ? ? 0F 84 ? ? ? ?");
+	FindAddress("BG_GetSpeed", "E8 ? ? ? ? 48 8B 54 24 ? 48 8B 4C 24 ? C5 FA 11 44 24 ? E8 ? ? ? ? 8B 97 ? ? ? ? C6 44 24 ? ? C5 FA 11 44 24 ?");
+	FindAddress("BG_GetSuitAnimType", "48 63 C1 48 8D 0D ? ? ? ? 48 8B 0C C1 48 85 C9 74 07 8B 81 ? ? ? ? C3");
+	FindAddress("BG_GetThirdPersonCrosshairOffset", "48 89 5C 24 ? 57 48 83 EC 40 48 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 75 0F C5 F8 57 C0");
+	FindAddress("BG_GetWeaponAttachments_Internal", "E8 ? ? ? ? 44 8B D0 85 C0 74 65 48 8D 54 24 ? 45 8B CA 4C 8D 84 24 ? ? ? ? 66 0F 1F 44 00 ?");
+	FindAddress("BG_GetWeaponFlashTagname", "E8 ? ? ? ? 8B 44 24 58 48 8B D5 4C 8B 8C 24 ? ? ? ? 4D 8B 06 8B 4C 24 54 89 44 24 40");
+	FindAddress("BG_GetWeaponModels", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 40 41 0F B7 01 48 8D 1D ? ? ? ? 49 8B F9 45 8B F0 8B F2 8B E9 48 8B 1C C3 83 BB ? ? ? ? ?");
+	FindAddress("BG_GetWeaponName", "45 8B C8 4C 8B C2 33 D2 E9 ? ? ? ?");
+	FindAddress("BG_HasUnderbarrelAmmo", "E8 ? ? ? ? 84 C0 74 0C 48 8B CB E8 ? ? ? ? 84 C0 74 5B 48 89 6C 24 ? 44 8B CE 48 63 6C 24 ?");
+	FindAddress("BG_Heat_GetHeat", "E8 ? ? ? ? 4C 8D 4C 24 ? 33 D2 4C 8D 44 24 ? 48 8B CF C5 F8 28 F0 E8 ? ? ? ? C5 FA 10 4C 24 ? 0F B6 43 08");
+	FindAddress("BG_Heat_GetIsSmoking", "48 85 C9 75 03 32 C0 C3 0F B6 41 08 24 01 C3");
+	FindAddress("BG_Heat_UpdateFlags", "48 89 5C 24 ? 57 48 83 EC 50 48 8B FA 48 8B D9 48 85 C9 0F 84 ? ? ? ? 83 79 04 00 0F 84 ? ? ? ?");
+	FindAddress("BG_HudOutline_GetColor", "40 53 55 56 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 8D A9 ? ? ? ? 49 8B D9 48 8B CD 41 0F B6 F0 8B FA E8 ? ? ? ?");
+	FindAddress("BG_IsAimDownSight", "E8 ? ? ? ? 84 C0 75 0A 33 D2 41 8B CD E8 ? ? ? ?");
+	FindAddress("BG_IsBoltAction", "E8 ? ? ? ? 84 C0 74 1A 48 8B 47 10 81 B8 ? ? ? ? ? ? ? ?");
+	FindAddress("BG_IsLastShotWeaponEvent", "83 C1 D4 83 F9 1F 77 21 48 63 C1 48 8D 15 ? ? ? ? 0F B6 84 02 ? ? ? ? 8B 8C 82 ? ? ? ? 48 03 CA FF E1");
+	FindAddress("BG_IsOffhandWeaponType", "E8 ? ? ? ? 4C 8B C5 49 8B D7 48 8B CE E8 ? ? ? ? 0F B7 8F ? ? ? ? 33 D2 48 8B 86 ? ? ? ?");
+	FindAddress("BG_Ladder_IsActive", "E8 ? ? ? ? 84 C0 74 49 B2 01 48 8B CE E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 8B 83 ? ? ? ?");
+	FindAddress("BG_LookAt_Init", "48 8B C4 48 81 EC ? ? ? ? 80 3D ? ? ? ? ? 0F 85 ? ? ? ? 48 89 58 18 48 8D 50 10 33 DB C6 05 ? ? ? ? ?");
+	FindAddress("BG_NightVisionGestureIsPlaying", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 49 8B D8 32 C0 41 B8 ? ? ? ? 49 8B F9 44 89 44 24 ? 48 8B E9 BE ? ? ? ? 48 85 D2 74 1E 48 8B CA E8 ? ? ? ?");
+	FindAddress("BG_Offhand_GetGestureIdxForWeapon", "48 89 5C 24 ? 57 48 83 EC 20 41 0F B7 00 48 8D 3D ? ? ? ? BB ? ? ? ? 48 8B 3C C7 0F B7 81 ? ? ? ? 48 6B C8 4E 48 83 C1 02 48 03 4A 08 E8 ? ? ? ?");
+	FindAddress("BG_Omnvar_GetDataChecksum", "E8 ? ? ? ? 48 8B CF 8B D8 E8 ? ? ? ? 3B D8 74 17 41 B8 ? ? ? ?");
+	FindAddress("BG_Omnvar_GetDef", "8B C1 48 8D 0D ? ? ? ? 48 8D 04 40 48 C1 E0 04 48 03 C1 C3");
+	FindAddress("BG_Omnvar_GetIndexByName", "0F BE 11 33 C0 85 D2 74 17 0F 1F 80 ? ? ? ? 6B C0 21 48 8D 49 01 03 C2 0F BE 11 85 D2 75 F0");
+	FindAddress("BG_Omnvar_IsInitialized", "E8 ? ? ? ? 84 C0 75 13 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?");
+	FindAddress("LiveStorage_DiscardStats", "E8 ? ? ? ? BA ? ? ? ? 8B CF E8 ? ? ? ? 84 C0 B9 ? ? ? ? BA ? ? ? ?");
+	FindAddress("BG_Omnvar_PerGameCount", "E8 ? ? ? ? 89 44 24 30 4C 8B CB 44 89 74 24 ? 45 33 C0 BA ? ? ? ? C7 44 24 ? ? ? ? ?");
+	FindAddress("BG_PlayAltGesturesForOffhandWeapons", "E8 ? ? ? ? 8B 4C 24 50 85 C9 74 5A 83 E9 01 74 3C 83 E9 01 74 1E 83 F9 01 75 5E 84 C0");
+	FindAddress("BG_PlayerASM_GetAnims", "E8 ? ? ? ? 8B D7 48 8B C8 48 8B D8 E8 ? ? ? ? 48 8B CB 84 C0 75 2B 8B D7 E8 ? ? ? ? 85 C0 7E 40");
+	FindAddress("BG_PlayerASM_GetAnimset", "E8 ? ? ? ? 4C 8B 6D E8 33 D2 49 8B CD 8B F0 E8 ? ? ? ? 8B F8");
+	FindAddress("BG_PlayerExtrap_RestorePlayerState", "E8 ? ? ? ? 33 DB 48 8D BE ? ? ? ? 83 3F 00 74 2E 8B C3");
+	FindAddress("BG_PlayerOrEntityDualWielding", "48 89 5C 24 ? 57 48 83 EC 20 48 8B DA 48 8B F9 48 85 D2 74 1D E8 ? ? ? ?");
 	
 	//Variables
 	FindAddress("level.clients", "4C 8B 05 ? ? ? ? 48 63 C2 FF C2 48 69 D8 ? ? ? ? 89 15 ? ? ? ? 48 03 D9 E8 ? ? ? ?");
 	FindAddress("g_entities", "48 03 15 ? ? ? ? 41 FF 52 20 48 8B C3 48 83 C4 20 5B C3");
 	FindAddress("bg_weaponDefs", "48 8D 2D ? ? ? ? 48 8B 6C C5 ? E8 ? ? ? ? 66 39 74 24 ?");
-	FindAddress("bg_weaponCompleteDefs", "48 8D 0D ? ? ? ? 4C 8D 4C 24 ? 44 8B C5 4C 8B 3C C1 48 8B CF E8 ? ? ? ?");
+	FindAddress("bg_weaponCompleteDefs", "4C 8D 35 ? ? ? ? 4D 8B 34 C6 4C 89 74 24 ? 4D 85 F6 0F 84 ? ? ? ? E8 ? ? ? ? 8B F8");
 	FindAddress("CgEntitySystem::ms_entitySystemArray", "48 8B 05 ? ? ? ? 49 89 5B 08 49 89 73 F0 0F B7 32 48 8B 40 10");
 	FindAddress("CgStatic::ms_cgameStaticsArray", "48 8D 15 ? ? ? ? 48 8B 0C CA 48 8B 11 4C 8B 82 ? ? ? ? 8B D3 41 FF D0");
 	FindAddress("cg_t::ms_cgArray", "4C 8D 05 ? ? ? ? 4D 8B 04 D0 90");
 	FindAddress("CgCompassSystem::ms_compassSystemArray", "48 8D 1D ? ? ? ? 48 8B 1C CB 48 85 DB 74 4F");
 	FindAddress("SvClient::ms_clients", "48 8D 35 ? ? ? ? 48 89 7C 24 ? 48 8B 04 DE 48 8D 3C DE 80 78 08 06");
+	FindAddress("aaGlobArray", "48 03 05 ? ? ? ? C6 80 ? ? ? ? ? C5 FA 11 88 ? ? ? ? C5 FA 11 90 ? ? ? ? 33 C0 F3 AA 48 8B 7C 24 ? C3");
 	//FindAddress("s_aab_set_pointer_lastpos", "8B 05 ? ? ? ? 4C 33 C0 41 FF D0 F6 03 01"); //bad spot need to fix
 	
 }
