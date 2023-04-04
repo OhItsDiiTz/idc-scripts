@@ -1329,6 +1329,9 @@ static ResolveHash(hash) {
 	if(hash == 0x0E1F6A1BB8FCC288) return "__Lua_Engine_Function_OverrideVisibilityBit";
 	if(hash == 0x4D97858119DEE164) return "__Lua_Engine_Function_GetHudIconForWeapon";
 	if(hash == 0x139D15A32073B948) return "__Lua_Engine_Function_SetClanName";
+	if(hash == 0x267D4F08B41BB4DD) return "__Lua_Engine_Function_ClearClanName";
+	if(hash == 0x63E5D8615FB145B8) return "__Lua_Engine_Function_PrivilegeGet";
+	if(hash == 0x212AA42031FA6D11) return "__Lua_Engine_Function_PrivilegeForceCheck";
 	return sprintf("__Lua_Engine_Function_%X", hash);
 }
 
