@@ -160,8 +160,8 @@ static main(void) {
 	FindAddress("IsAppDota2Experimental", "E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 48 8B 05 ? ? ? ? BA ? ? ? ? 48 89 9C 24 ? ? ? ? 8B 08 FF 15 ? ? ? ?");
 	FindAddress("panorama::CPanel2D::SetDialogVariable", "E8 ? ? ? ? 33 D2 48 8D 4C 24 ? FF 15 ? ? ? ? 41 8B 04 34 39 05 ? ? ? ? 0F 8F ? ? ? ? 48 8B 4B 08 0F B7 15 ? ? ? ? 48 8B 01 FF 90 ? ? ? ? F3 41 0F 10 57 ?");
 	FindAddress("CDOTA_DB_Play::SendFindMatchMessage", "44 88 4C 24 ? 89 54 24 10 53 55 41 54 41 55 41 56 48 83 EC 50 48 63 EA 45 0F B6 F1 45 8B E0 48 8B D9 83 FD 0E 77 37");
-	FindAddress("", "");
-	FindAddress("", "");
+	FindAddress("CDOTA_DB_Play::OnMatchGroupsUpdated", "48 89 5C 24 ? 55 48 83 EC 30 48 8B E9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 85 C0 75 0B 48 8B 05 ? ? ? ? 48 8B 40 08 8B 18 85 DB 75 23 4C 8D 05 ? ? ? ? 48 8B CD 48 8D 15 ? ? ? ? E8 ? ? ? ? B0 01");
+	FindAddress("CDOTA_DB_Play::OnMatchLanguagesUpdated", "40 56 48 81 EC ? ? ? ? 48 8B F1 48 8D 15 ? ? ? ? 48 8B 49 08 48 8B 01 FF 90 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10 48 8B C8");
 	FindAddress("", "");
 	FindAddress("", "");
 	FindAddress("", "");
