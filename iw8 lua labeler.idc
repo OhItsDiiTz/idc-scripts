@@ -884,8 +884,8 @@ static ResolveLuaCall(luacall_hash) {
 	if(luacall_hash == "DCCFJEGGGE") return "LUI_CoD_LuaCall_GetBoundKey";
 	if(luacall_hash == "DEGABDJDH") return "LUI_CoD_LuaCall_GetDefaultKey";
 	if(luacall_hash == "EJJEHHFCC") return "LUI_CoD_LuaCall_SetRecommended";
-	if(luacall_hash == "CAAAFJIFDG") return "j_?LUI_CoD_LuaCall_BBPrint@@YAHPEAUlua_State@@@Z";
-	if(luacall_hash == "CEJJDJJHIJ") return "j_?DLog_LuaRecordEvent@@YAHPEAUlua_State@@@Z";
+	if(luacall_hash == "CAAAFJIFDG") return "LUI_CoD_LuaCall_BBPrint";
+	if(luacall_hash == "CEJJDJJHIJ") return "DLog_LuaRecordEvent";
 	if(luacall_hash == "CEIHBEDEDE") return "LUI_CoD_LuaCall_DLog_RecordBindingsAndGameplayOptions";
 	if(luacall_hash == "CDEBADHJJF") return "LUI_CoD_LuaCall_DLog_NotifyMainMenuStart";
 	if(luacall_hash == "DDCJCCJCBA") return "LUI_CoD_LuaCall_ReportPublicLobbyMenuOpenedWithoutBeingInLobbyPartyError";
