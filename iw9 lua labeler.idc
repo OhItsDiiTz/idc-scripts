@@ -1426,7 +1426,7 @@ static resolve(hash) {
 	if(hash == 0x4327C4D57F7A13E8) return "LUI_CoD_LuaCall_IsContentCreatorCodeExpired";
 	if(hash == 0xCA5D74F5095148D5) return "LUI_CoD_LuaCall_GetContentCreatorCode";
 	if(hash == 0xB1A0ABF2C57B4CA4) return "LUI_CoD_LuaCall_RedeemCode";
-		if(hash == 0x38C7A8C4C5FD9892) return "LUI_CoD_LuaCall_UnsubscribeAndFreeModel";
+	if(hash == 0x38C7A8C4C5FD9892) return "LUI_CoD_LuaCall_UnsubscribeAndFreeModel";
 	if(hash == 0x78DF2E5447F384B9) return "LUI_CoD_LuaCall_GetGlobalModel";
 	if(hash == 0xC40E824FE270E174) return "LUI_CoD_LuaCall_GetModel";
 	if(hash == 0x84DF5CFBC1771947) return "LUI_CoD_LuaCall_GetModelForController";
