@@ -37,6 +37,64 @@ static FindAddress(func, patrn) {
 	}
 }
 
+static label_list_funcs(void) {
+	auto list_rfunc;
+	auto list_rclass;
+	auto list_rfunclist;
+	auto list_rfunclistend;
+	auto list_cfuncptr;
+	auto list_cfunc;
+	auto list_cfuncnameptr;
+	auto list_cfuncname;
+	//48 83 C4 ?? E9 ?? ?? ?? ?? - use this when more then 1 function is registered, else you can use this E9 ?? ?? ?? ??
+	
+	list_rfunc = FindBinary(get_imagebase(), SEARCH_DOWN, "40 53 48 83 EC 40 48 8B D9 4C 8D 05 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 05 ?? ?? ?? ?? 48 89 5C 24 ?? 4C 8D 44 24 ?? 48 89 44 24 ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 4C 8D 0D ?? ?? ?? ?? 4C 8B C3 C6 44 24 ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 83 C4 40 5B C3");
+	
+	list_rclass = FindBinary(list_rfunc, SEARCH_DOWN, "48 8D 15 ?? ?? ?? ??");
+	list_rclass = GetString(decode_insn(list_rclass).Op1.addr, -1, 0);
+	
+	list_rfunclist = FindBinary(list_rfunc, SEARCH_DOWN, "48 8D 05 ?? ?? ?? ??");
+	list_rfunclist = decode_insn(list_rfunclist).Op1.addr;
+	
+	list_rfunclistend = FindBinary(list_rfunclist, SEARCH_DOWN, "E9 ?? ?? ?? ??");
+	
+	Message("0x%X - %s - %X - %X\n", list_rfunc, list_rclass, list_rfunclist, list_rfunclistend);
+	
+	list_cfuncptr = FindBinary(list_rfunclist, SEARCH_DOWN, "48 8D 15 ?? ?? ?? ??");
+	list_cfunc = decode_insn(list_cfuncptr).Op1.addr;
+	list_cfuncnameptr = FindBinary(list_cfuncptr + 1, SEARCH_DOWN, "48 8D 0D ?? ?? ?? ??");
+	list_cfuncname = GetString(decode_insn(list_cfuncnameptr).Op1.addr, -1, 0);
+	
+	Message("%X - %X - %X - %s\n", list_cfuncptr, list_cfunc, list_cfuncnameptr, list_cfuncname);
+	
+	
+	while(list_rfunc != -1) {
+		list_rfunc = FindBinary(list_rfunc + 1, SEARCH_DOWN, "40 53 48 83 EC 40 48 8B D9 4C 8D 05 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8D 05 ?? ?? ?? ?? 48 89 5C 24 ?? 4C 8D 44 24 ?? 48 89 44 24 ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 4C 8D 0D ?? ?? ?? ?? 4C 8B C3 C6 44 24 ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 8B 01 FF 90 ?? ?? ?? ?? 48 83 C4 40 5B C3");;
+		if(list_rfunc == -1) {
+			break;
+		}
+		list_rclass = FindBinary(list_rfunc, SEARCH_DOWN, "48 8D 15 ?? ?? ?? ??");
+		list_rclass = GetString(decode_insn(list_rclass).Op1.addr, -1, 0);
+	
+		list_rfunclist = FindBinary(list_rfunc, SEARCH_DOWN, "48 8D 05 ?? ?? ?? ??");
+		list_rfunclist = decode_insn(list_rfunclist).Op1.addr;
+	
+		list_rfunclistend = FindBinary(list_rfunclist, SEARCH_DOWN, "4C 8D 05 ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 0D ?? ?? ?? ?? 48 83 C4 28 E9 ?? ?? ?? ??");
+	
+		Message("0x%X - %s - %X - %X\n", list_rfunc, list_rclass, list_rfunclist, list_rfunclistend);
+		list_cfuncptr = list_rfunclist;
+		while(list_cfuncptr < list_rfunclistend) {
+			if(list_cfuncptr < list_rfunclistend) {
+				list_cfuncptr = FindBinary(list_cfuncptr + 1, SEARCH_DOWN, "48 8D 15 ?? ?? ?? ??");
+				list_cfunc = decode_insn(list_cfuncptr).Op1.addr;
+				list_cfuncnameptr = FindBinary(list_cfuncptr + 1, SEARCH_DOWN, "48 8D 0D ?? ?? ?? ??");
+				list_cfuncname = GetString(decode_insn(list_cfuncnameptr).Op1.addr, -1, 0);
+				MakeName(list_cfunc, sprintf("%s::%s", list_rclass, list_cfuncname));
+				Message("%X - %X - %X - %s::%s\n", list_cfuncptr, list_cfunc, list_cfuncnameptr, list_rclass, list_cfuncname);
+			}
+		}
+	}
+}
 
 static main(void) {
 	FindAddress("engine", "48 8B 0D ? ? ? ? 48 8D 05 ? ? ? ? 48 89 44 24 ? 48 8D 94 24 ? ? ? ? 44 8B C3 48 8B 01 FF 90 ? ? ? ? 4C 8B 35 ? ? ? ?"); //global variable
@@ -77,16 +135,14 @@ static main(void) {
 	FindAddress("IGameSystem::Add", "40 57 48 81 EC ? ? ? ? 48 8B F9 48 8D 94 24 ? ? ? ? 4C 8B C1 48 8D 0D ? ? ? ? FF 15 ? ? ? ? 0F B7 84 24 ? ? ? ? B9 ? ? ? ? 66 3B C1 75 05 B8 ? ? ? ?");
 	FindAddress("CSource1GameConfiguration::InitGameSession", "48 83 EC 28 E8 ? ? ? ? 84 C0 75 05 48 83 C4 28 C3");
 	FindAddress("UI_PopupManager::ShowPopup", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC 20 65 48 8B 04 25 ? ? ? ? 48 8B F9 44 8B 05 ? ? ? ? 4C 8B FA");
-	FindAddress("GetClientVersionForGCMessage", "48 8B 0D ? ? ? ? 48 8B 01 48 FF A0 58 02 00 00");
-	FindAddress("CMsgStartFindingMatch::Clear", "48 83 EC 28 48 89 6C 24 ? 33 ED 48 89 74 24 ? 8B 71 10 48 89 7C 24 ? 48 8B F9");
 	FindAddress("C_BaseEntity::OnDataChanged", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 8B F2 48 8B D9 FF 90 ? ? ? ? 48 8B 0D ? ? ? ? 48 8B F8");
 	FindAddress("MainViewOrigin", "E8 ? ? ? ? 8B CB F2 0F 10 00 F2 0F 11 06 8B 40 08 89 46 08 E8 ? ? ? ? 4C 8D 4E 24 8B D3");
 	FindAddress("MainViewAngles", "E8 ? ? ? ? 4C 8D 4E 24 8B D3 4C 8D 46 18 48 8B CF F2 0F 10 00 F2 0F 11 46 ? 8B 40 08");
 	FindAddress("ReadSteamRemoteStorageFile", "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 33 FF 48 8B F2 F7 41 ? ? ? ? ? 48 8B D9 48 89 79 10");
 	FindAddress("UI_Popup_Generic::SetDisplayTwoOptions", "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 50 48 8B 84 24 ? ? ? ? 4C 8B FA 33 D2 4C 89 4C 24 ?");
-	FindAddress("", "");
-	FindAddress("", "");
-	FindAddress("", "");
+	
+	
+	label_list_funcs();
 
 }
 
