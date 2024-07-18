@@ -1,1 +1,11 @@
-t9_functions.idc
+*/iw5sp-ps3 gsc labeler.idc
+*/iw8 builtin labeler.idc
+*/iw8 lua labeler.idc
+*/iw9 builtin labeler.idc
+*/iw9 functions.idc
+*/iw9 lua labeler.idc
+*/s2 functions.idc
+*/s2 lua labeler.idc
+*/s4 lua labeler.idc
+*/t9 functions.idc
+*/t9 lua labeler.idc
