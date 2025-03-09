@@ -477,6 +477,15 @@ static NameFunctions() {
 	FindAddress("CSubmarineHandling::ProcessDepthLimit", "40 53 48 83 EC 40 0F 28 8A ? ? ? ? 0F 29 74 24 ? F3 0F 10 35 ? ? ? ? 48 8B DA 0F 28 C1 0F C6 C1 AA 0F 2F C6 73 7F");
 	
 	
+	FindAddress("rage::fwEntity::InitTransformFromDefinition", "48 8B C4 48 89 58 10 48 89 70 18 55 57 41 56 48 8D 68 D8 48 81 EC ?? ?? ?? ?? 0F 29 70 D8 0F 29 78 C8 44 0F 29 40 ?? 48 8B DA 32 D2 48 8B F1 44 0F 29 48 ?? 49 8B 40 58 48 85 C0 74 09");
+	FindAddress("rage::fwEntity::InitExtensionsFromDefinition", "48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 48 89 78 20 41 54 41 56 41 57 48 83 EC 20 45 33 E4 45 8B F9 48 8B FA 48 8B E9 41 8B DC 66 44 3B 62 ?? 73 60");
+	FindAddress("CEntity::InitEntityFromDefinition", "48 89 5C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 57 48 83 EC 20 49 8B F0 48 8B FA 48 8B D9 E8 ?? ?? ?? ?? 44 8B 4F 0C 41 0F BA E1 ?? 73 08 0F BA B3 ?? ?? ?? ?? ?? 41 0F BA E1 ??");
+	FindAddress("CPed::SetModelId", "48 89 5C 24 ?? 57 48 83 EC 20 66 81 3A ?? ?? 48 8B DA 48 8B F9 0F 84 ?? ?? ?? ?? 48 8B CA E8 ?? ?? ?? ?? 44 8B 0B 48 8D 54 24 ?? 66 89 44 24 ?? 8B 44 24 38 45 8B C1");
+	FindAddress("rage::fwEntity::GetGlobalMtx", "48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 57 48 83 EC 20 48 8B 01 49 8B F0 8B EA 48 8B F9 FF 50 58 33 DB 48 85 C0 74 18");
+	FindAddress("", "");
+	FindAddress("", "");
+	
+	
 	Message("Misc Functions Done!\n");
 }
 
