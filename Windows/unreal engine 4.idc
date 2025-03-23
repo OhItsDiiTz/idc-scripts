@@ -39,11 +39,17 @@ static ResolveClassParams(ClassParams) {
 	
 	class_name = GetString(class_name, -1, 1);
 	
-	//Print all properties
+	//Print and Format all properties
 	if(NumProperties != 0 && PropertyArray != 0) {
 		auto i = 0;
 		for(i = 0;i < NumProperties;i++) {
-			
+		    auto PropertyPtr = PropertyArray + (i * 8);
+			auto Property = Qword(PropertyPtr);
+			auto PropertyName = GetString(Qword(Property), -1, 0);
+			auto PropertyOffset = Dword(Property + 0x24);
+			Message("%s: 0x%08X\n", PropertyName, PropertyOffset);
+			MakeQword(PropertyPtr); //Format Pointer To Property
+			MakeQword(Property); //Format Pointer In Property To String
 		}
 	}
 	
@@ -79,11 +85,16 @@ static main() {
 	
 	//Resolve the call address for UObjectCompiledInDefer
 	UObjectCompiledInDefer = decode_insn(UObjectCompiledInDefer).Op0.addr;
-
+	
+	//Find the ConstructUClass function to get all classes
+	ConstructUClass = FindBinary(get_imagebase(), SEARCH_DOWN, "40 55 56 41 56 48 8D AC 24 ?? ?? ?? ?? 48 81 EC ?? ?? ?? ?? 48 8B 05 ?? ?? ?? ?? 48 33 C4 48 89 85 ?? ?? ?? ?? 48 8B 01 4C 8B F2 48 8B F1 48 85 C0 74 10 F7 80 ?? ?? ?? ?? ?? ?? ?? ??");
+	
+	
 	
 	Message("UObjectCompiledInDefer: 0x%X\n", UObjectCompiledInDefer);
 	
-	ResolveClassParams(0x000000014E66B8C0);
+    //0x000000014E66B8C0 - UWorld class data
+	ResolveClassParams(0x000000014E4AA960);
 	
 }
 
