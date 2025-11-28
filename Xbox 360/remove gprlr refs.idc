@@ -83,4 +83,21 @@ static main() {
 		}
 		index++;
 	}
+	
+	ref = FindBinary(get_imagebase(), SEARCH_DOWN, "7D 88 02 A6");
+	while(ref != -1) {
+		insn_type = print_insn_mnem(ref);
+		Message("0x%X - %s\n", ref, insn_type);
+		patch_dword(ref, 0x60000000);
+		ref = FindBinary(ref + 4, SEARCH_DOWN, "7D 88 02 A6");
+	}
+	
+	ref = FindBinary(get_imagebase(), SEARCH_DOWN, "7D 88 03 A6");
+	while(ref != -1) {
+		insn_type = print_insn_mnem(ref);
+		Message("0x%X - %s\n", ref, insn_type);
+		patch_dword(ref, 0x60000000);
+		ref = FindBinary(ref + 4, SEARCH_DOWN, "7D 88 03 A6");
+	}
+	
 }
