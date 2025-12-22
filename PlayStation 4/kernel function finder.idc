@@ -48,7 +48,7 @@ static main() {
     auto _sysents = FindBinary(image_base, SEARCH_DOWN, "55 48 89 E5 41 56 53 48 8D 3D ?? ?? ?? ?? 48 8D 35 ?? ?? ?? ?? 31 D2 31 DB");
     _sysents = FindBinary(_sysents + 1, SEARCH_DOWN, "4C 8D 35 ?? ?? ?? ??");
     
-	Message("//kernel revision: %s\n", get_kernel_version());
+	Message("//kernel revision: %s (0x%X)\n", get_kernel_version(), kernel_revision);
 	Message("printf: 0x%X\n", decode_insn(_printf).Op0.addr);
 	Message("malloc: 0x%X\n", decode_insn(_malloc).Op0.addr);
 	Message("free: 0x%X\n", decode_insn(_free).Op0.addr);
