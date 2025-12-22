@@ -9,3 +9,5 @@
 */s4 lua labeler.idc
 */t9 functions.idc
 */t9 lua labeler.idc
+*/bo7 builtin labeler.idc
+*/bo7 lua labeler.idc
