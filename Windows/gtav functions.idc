@@ -482,8 +482,6 @@ static NameFunctions() {
 	FindAddress("CEntity::InitEntityFromDefinition", "48 89 5C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 57 48 83 EC 20 49 8B F0 48 8B FA 48 8B D9 E8 ?? ?? ?? ?? 44 8B 4F 0C 41 0F BA E1 ?? 73 08 0F BA B3 ?? ?? ?? ?? ?? 41 0F BA E1 ??");
 	FindAddress("CPed::SetModelId", "48 89 5C 24 ?? 57 48 83 EC 20 66 81 3A ?? ?? 48 8B DA 48 8B F9 0F 84 ?? ?? ?? ?? 48 8B CA E8 ?? ?? ?? ?? 44 8B 0B 48 8D 54 24 ?? 66 89 44 24 ?? 8B 44 24 38 45 8B C1");
 	FindAddress("rage::fwEntity::GetGlobalMtx", "48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 57 48 83 EC 20 48 8B 01 49 8B F0 8B EA 48 8B F9 FF 50 58 33 DB 48 85 C0 74 18");
-	FindAddress("", "");
-	FindAddress("", "");
 	
 	
 	Message("Misc Functions Done!\n");
