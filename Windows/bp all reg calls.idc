@@ -1,5 +1,6 @@
 /*
-This script is buggy, it breakpoints all of the indirect calls in an executable before debugging. But due to things sharing the same bytes not all will truely be indirect calls
+This script is buggy, it breakpoints all of the indirect calls in an executable before debugging. But due to things sharing the same bytes not all will truely be indirect calls.
+Some issues are with the r8-r15 indirect calls, some of these match part of the sigs for the regular indirect calls. due to this you will hit an indirect call of r8-r15 first, if you see the next instruction breakpointed, remove that breakpoint then continue otherwise a crash will occur
 
 */
 
